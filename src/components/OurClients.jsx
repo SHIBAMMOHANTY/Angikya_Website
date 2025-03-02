@@ -1,0 +1,42 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+const logos = [
+  "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/6/6f/Netflix_2015_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/2/29/Samsung_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg",
+  
+];
+
+const InfiniteMarquee = () => {
+  return (
+    <div className="bg-[#121212] text-white py-12 overflow-hidden">
+      <h2 className="text-3xl font-bold text-center mb-6">Our Clients & Partners</h2>
+      <div className="relative flex w-full overflow-hidden">
+        <motion.div
+          className="flex space-x-10"
+          animate={{ x: ["0%", "-100%"] }}
+          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+          style={{ display: "flex", whiteSpace: "nowrap" }}
+        >
+          {[...logos, ...logos].map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt="Company Logo"
+              className="w-28 h-auto opacity-80 hover:opacity-100 transition-all drop-shadow-lg"
+              onError={(e) => (e.target.style.display = "none")} // Hide broken images
+            />
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export default InfiniteMarquee;
