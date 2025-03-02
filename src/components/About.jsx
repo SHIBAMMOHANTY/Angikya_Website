@@ -87,8 +87,8 @@ const AboutUs = () => {
       {/* Glassmorphic Info Cards */}
       <div className="relative max-w-7xl mx-auto grid md:grid-cols-3 gap-10 mt-16">
         {[
-          { number: "10+", label: "Years of Innovation" },
-          { number: "500+", label: "Successful Projects" },
+          { number: "1+", label: "Years of Innovation" },
+          { number: "10+", label: "Successful Projects" },
           { number: "100%", label: "Client Satisfaction" },
         ].map((item, index) => (
           <motion.div
