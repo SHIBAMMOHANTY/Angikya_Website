@@ -4,6 +4,7 @@ import { Fingerprint } from "lucide-react";
 import { ShieldHalf } from "lucide-react";
 import { PlugZap } from "lucide-react";
 import { GlobeLock } from "lucide-react";
+
 import Service from "../components/Service"
 
 import user1 from "../assets/profile-pictures/user1.jpg";

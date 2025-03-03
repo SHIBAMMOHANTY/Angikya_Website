@@ -43,26 +43,29 @@ const Navbar = () => {
           </div>
         </div>
         {mobileDrawerOpen && (
-          <div className="fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden">
-            <ul>
-              {navItems.map((item, index) => (
-                <li key={index} className="py-4">
-                  <a href={item.href}>{item.label}</a>
-                </li>
-              ))}
-            </ul>
-            <div className="flex space-x-6">
-              {/* <a href="#" className="py-2 px-3 border rounded-md">
-                Sign In
-              </a> */}
-              {/* <a
-                href="#"
-                className="py-2 px-3 rounded-md bg-gradient-to-r from-blue-500 to-blue-800"
-              >
-                Create an account
-              </a> */}
-            </div>
+          <div className="fixed right-0 z-20 bg-gray-200 w-full p-12 flex flex-col justify-center items-center lg:hidden">
+          <ul>
+            {navItems.map((item, index) => (
+              <li key={index} className="py-4">
+                <a href={item.href} className="text-black font-bold">
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="flex space-x-6">
+            {/* <a href="#" className="py-2 px-3 border rounded-md text-black font-bold">
+              Sign In
+            </a> */}
+            {/* <a
+              href="#"
+              className="py-2 px-3 rounded-md bg-gradient-to-r from-blue-500 to-blue-800 text-white font-bold"
+            >
+              Create an account
+            </a> */}
           </div>
+        </div>
+        
         )}
       </div>
     </nav>
