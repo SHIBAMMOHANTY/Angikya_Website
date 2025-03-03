@@ -64,16 +64,16 @@ const Footer = () => {
       <div className="mt-8 text-center">
         <h3 className="text-md font-semibold mb-4">Follow Us On</h3>
         <div className="flex justify-center space-x-6">
-          <a href="https://linkedin.com/company/angikya" target="_blank" rel="noopener noreferrer">
+          <a href="https://linkedin.com/company/ANGIKYA" target="_blank" rel="noopener noreferrer">
             <FaLinkedin className="text-2xl hover:text-white transition" />
           </a>
-          <a href="https://twitter.com/angikya" target="_blank" rel="noopener noreferrer">
+          <a href="https://twitter.com/ANGIKYA" target="_blank" rel="noopener noreferrer">
             <FaTwitter className="text-2xl hover:text-white transition" />
           </a>
-          <a href="https://github.com/angikya" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/ANGIKYA" target="_blank" rel="noopener noreferrer">
             <FaGithub className="text-2xl hover:text-white transition" />
           </a>
-          <a href="https://facebook.com/angikya" target="_blank" rel="noopener noreferrer">
+          <a href="https://facebook.com/ANGIKYA" target="_blank" rel="noopener noreferrer">
             <FaFacebook className="text-2xl hover:text-white transition" />
           </a>
         </div>
@@ -81,7 +81,7 @@ const Footer = () => {
 
       {/* Copyright Section */}
       <div className="mt-8 text-center text-sm text-neutral-500">
-        <p>&copy; {new Date().getFullYear()} Angikya Technology. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} ANGIKYA Technology. All rights reserved.</p>
       </div>
     </footer>
   );
