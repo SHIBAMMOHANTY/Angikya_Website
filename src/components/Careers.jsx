@@ -53,7 +53,7 @@ const CareerPage = () => {
   return (
     <div className="flex flex-col items-center mt-10 px-4 md:px-8 lg:px-16">
       <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-6 text-blue-600">
-        Join Our Team at ANGIKYA Technology
+        Join Our Team at Angikya Technology
       </h1>
       <p className="text-lg text-neutral-600 text-center max-w-3xl mb-10">
         We are looking for passionate individuals to be part of our journey. Explore
@@ -87,7 +87,7 @@ const CareerPage = () => {
       </div>
       
       <footer className="mt-20 border-t py-6 border-neutral-700 text-center text-neutral-500">
-        <p>&copy; {new Date().getFullYear()} ANGIKYA Technology. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Angikya Technology. All rights reserved.</p>
       </footer>
     </div>
   );

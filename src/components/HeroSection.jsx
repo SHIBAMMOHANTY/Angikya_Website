@@ -8,7 +8,7 @@ const HeroSection = () => {
       {/* Text Section */}
       <div className="lg:w-1/2 text-center lg:text-left px-4">
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-wide">
-          ANGIKYA Software{" "}
+          Angikya Software{" "}
           <span className="bg-gradient-to-r from-blue-500 to-red-800 text-transparent bg-clip-text">
             Technology
           </span>
