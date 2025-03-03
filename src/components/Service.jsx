@@ -4,12 +4,12 @@
 //   return (
 //     <div className="relative mt-20 border-b border-neutral-800 min-h-[800px]">
 //       <div className="text-center">
-//         <span className="bg-neutral-900 text-orange-500 rounded-full h-6 text-sm font-medium px-2 py-1 uppercase">
+//         <span className="bg-neutral-900 text-blue-500 rounded-full h-6 text-sm font-medium px-2 py-1 uppercase">
 //           Feature
 //         </span>
 //         <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking-wide">
 //           Our{" "}
-//           <span className="bg-gradient-to-r from-orange-500 to-orange-800 text-transparent bg-clip-text">
+//           <span className="bg-gradient-to-r from-blue-500 to-blue-800 text-transparent bg-clip-text">
 //            Services
 //           </span>
 //         </h2>
@@ -18,7 +18,7 @@
 //         {features.map((feature, index) => (
 //           <div key={index} className="w-full sm:w-1/2 lg:w-1/3">
 //             <div className="flex">
-//               <div className="flex mx-6 h-10 w-10 p-2 bg-neutral-900 text-orange-700 justify-center items-center rounded-full">
+//               <div className="flex mx-6 h-10 w-10 p-2 bg-neutral-900 text-blue-700 justify-center items-center rounded-full">
 //                 {feature.icon}
 //               </div>
 //               <div>
@@ -56,12 +56,12 @@ const FeatureSection = () => {
     <div className="relative mt-20 border-b border-neutral-800 py-16">
       {/* Title */}
       <div className="text-center">
-        <span className="bg-neutral-900 text-orange-500 rounded-full text-sm font-medium px-3 py-1 uppercase">
+        <span className="bg-neutral-900 text-blue-500 rounded-full text-sm font-medium px-3 py-1 uppercase">
           Our Services
         </span>
         <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-10 tracking-wide">
           Elevating Businesses with{" "}
-          <span className="bg-gradient-to-r from-orange-500 to-orange-800 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-blue-500 to-blue-800 text-transparent bg-clip-text">
             Cutting-Edge Tech
           </span>
         </h2>
@@ -70,9 +70,9 @@ const FeatureSection = () => {
       {/* Services Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto mt-16">
         {services.map((service, index) => (
-          <div key={index} className="p-6 bg-neutral-900 rounded-xl border border-neutral-800 hover:border-orange-500 transition-all duration-300">
+          <div key={index} className="p-6 bg-neutral-900 rounded-xl border border-neutral-800 hover:border-blue-500 transition-all duration-300">
             <div className="flex items-center space-x-4">
-              <div className="p-3 bg-orange-500/20 text-orange-500 rounded-full">
+              <div className="p-3 bg-blue-500/20 text-blue-500 rounded-full">
                 {service.icon}
               </div>
               <h5 className="text-xl font-semibold">{service.title}</h5>

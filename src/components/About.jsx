@@ -14,7 +14,7 @@
 //               <p className="text-4xl mb-8">
 //                 {option.title}
 //                 {option.title === "Pro" && (
-//                   <span className="bg-gradient-to-r from-orange-500 to-red-400 text-transparent bg-clip-text text-xl mb-4 ml-2">
+//                   <span className="bg-gradient-to-r from-blue-500 to-red-400 text-transparent bg-clip-text text-xl mb-4 ml-2">
 //                     (Most Popular)
 //                   </span>
 //                 )}
@@ -33,7 +33,7 @@
 //               </ul>
 //               <a
 //                 href="#"
-//                 className="inline-flex justify-center items-center text-center w-full h-12 p-5 mt-20 tracking-tight text-xl hover:bg-orange-900 border border-orange-900 rounded-lg transition duration-200"
+//                 className="inline-flex justify-center items-center text-center w-full h-12 p-5 mt-20 tracking-tight text-xl hover:bg-blue-900 border border-blue-900 rounded-lg transition duration-200"
 //               >
 //                 Subscribe
 //               </a>
@@ -54,7 +54,7 @@ const AboutUs = () => {
     <div className="relative bg-[#0F0F0F] text-white py-24 px-6 overflow-hidden">
       {/* Animated Background Elements */}
       <motion.div
-        className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-orange-500/10 via-transparent to-orange-500/10 blur-3xl opacity-40"
+        className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/10 via-transparent to-blue-500/10 blur-3xl opacity-40"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
@@ -63,7 +63,7 @@ const AboutUs = () => {
       <div className="relative max-w-6xl mx-auto text-center">
         {/* Title */}
         <motion.h2
-          className="text-5xl sm:text-6xl font-extrabold tracking-wide bg-gradient-to-r from-orange-500 to-red-500 text-transparent bg-clip-text"
+          className="text-5xl sm:text-6xl font-extrabold tracking-wide bg-gradient-to-r from-blue-500 to-red-500 text-transparent bg-clip-text"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -97,7 +97,7 @@ const AboutUs = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            <h3 className="text-5xl font-bold text-orange-400">{item.number}</h3>
+            <h3 className="text-5xl font-bold text-blue-400">{item.number}</h3>
             <p className="text-neutral-300 text-lg mt-2">{item.label}</p>
           </motion.div>
         ))}
@@ -112,7 +112,7 @@ const AboutUs = () => {
       >
         <a
           href="#"
-          className="px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-red-500 rounded-lg hover:scale-105 transition-all"
+          className="px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-red-500 rounded-lg hover:scale-105 transition-all"
         >
           Join Us
         </a>

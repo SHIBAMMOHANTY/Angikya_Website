@@ -12,7 +12,7 @@ const techStack = [
   { name: "GraphQL", icon: <SiGraphql className="text-pink-500 text-5xl" /> },
   { name: "Docker", icon: <SiDocker className="text-blue-600 text-5xl" /> },
   { name: "AWS", icon: <FaAws className="text-yellow-500 text-5xl" /> },
-  { name: "Firebase", icon: <SiFirebase className="text-orange-500 text-5xl" /> },
+  { name: "Firebase", icon: <SiFirebase className="text-blue-500 text-5xl" /> },
   { name: "Supabase", icon: <SiSupabase className="text-green-500 text-5xl" /> },
   { name: "OpenAI", icon: <SiOpenai className="text-gray-300 text-5xl" /> },
   { name: "Python", icon: <FaPython className="text-yellow-400 text-5xl" /> },
@@ -26,7 +26,7 @@ const TechStack = () => {
   return (
     <div className="mt-10 mb-5 pb-10 text-center"> {/* Added extra bottom spacing */}
       <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-6 tracking-wide">
-        Our <span className="bg-gradient-to-r from-orange-500 to-orange-800 text-transparent bg-clip-text">Tech Stack</span>
+        Our <span className="bg-gradient-to-r from-blue-500 to-blue-800 text-transparent bg-clip-text">Tech Stack</span>
       </h2>
 
       <div className="flex flex-wrap justify-center gap-8 mt-10">

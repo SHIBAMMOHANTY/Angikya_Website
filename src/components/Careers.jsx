@@ -52,7 +52,7 @@ const CareerPage = () => {
 
   return (
     <div className="flex flex-col items-center mt-10 px-4 md:px-8 lg:px-16">
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-6 text-orange-600">
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-6 text-blue-600">
         Join Our Team at Angikya Technology
       </h1>
       <p className="text-lg text-neutral-600 text-center max-w-3xl mb-10">
@@ -63,12 +63,12 @@ const CareerPage = () => {
       <div className="w-full max-w-5xl space-y-10">
         {jobListings.map((job) => (
           <div key={job.id} className="border border-gray-300 rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white relative">
-            <h2 className="text-3xl font-semibold text-orange-700">{job.title}</h2>
+            <h2 className="text-3xl font-semibold text-blue-700">{job.title}</h2>
             <p className="text-neutral-500 mt-2 text-lg">Location: {job.location}</p>
             <p className="text-neutral-500 mt-1 text-lg">Experience: {job.experience}</p>
             <p className="mt-4 text-neutral-600 text-lg line-clamp-2">{job.description}</p>
             <button 
-              className="mt-4 text-orange-600 hover:underline focus:outline-none"
+              className="mt-4 text-blue-600 hover:underline focus:outline-none"
               onClick={() => alert(job.description)}>
               Read More
             </button>
@@ -76,7 +76,7 @@ const CareerPage = () => {
               href={job.link} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="mt-6 px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition block text-center text-lg font-medium">
+              className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition block text-center text-lg font-medium">
               Apply Now
             </a>
             <p className="absolute top-3 right-3 bg-gray-100 px-3 py-1 rounded-full text-sm font-medium text-gray-700">
