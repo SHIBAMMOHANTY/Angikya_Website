@@ -86,9 +86,7 @@ const CareerPage = () => {
         ))}
       </div>
       
-      <footer className="mt-20 border-t py-6 border-neutral-700 text-center text-neutral-500">
-        <p>&copy; {new Date().getFullYear()} ANGIKYA Technology. All rights reserved.</p>
-      </footer>
+      
     </div>
   );
 };
