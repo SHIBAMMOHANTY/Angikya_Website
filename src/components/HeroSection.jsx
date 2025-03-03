@@ -4,20 +4,23 @@ import video2 from "../assets/video2.mp4";
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center mt-6 lg:mt-20 px-4 md:px-8 lg:px-16">
+    <div className="flex flex-col lg:flex-row items-center justify-center mt-4 lg:mt-8 px-6 md:px-12 lg:px-20 relative">
+      {/* Cursor Effect */}
+      <div className="absolute inset-0 pointer-events-none animate-pulse bg-gradient-radial from-transparent via-blue-300/20 to-transparent"></div>
+
       {/* Text Section */}
       <div className="lg:w-1/2 text-center lg:text-left px-4">
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-wide">
-          Angikya Software{" "}
-          <span className="bg-gradient-to-r from-blue-500 to-red-800 text-transparent bg-clip-text">
+          ANGIKYA Software{" "}
+          <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-transparent bg-clip-text">
             Technology
           </span>
         </h1>
 
         {/* Typing Effect */}
-        <h2 className="text-xl sm:text-3xl lg:text-4xl mt-4 text-gray-300">
+        <h2 className="text-xl sm:text-3xl lg:text-4xl mt-4 text-gray-600">
           We excel in{" "}
-          <span className="text-blue-500 font-semibold">
+          <span className="text-blue-600 font-semibold">
             <TypeAnimation
               sequence={[
                 "Software Development", 1500,
@@ -27,7 +30,7 @@ const HeroSection = () => {
                 "Cloud Computing", 1500,
                 "UI/UX Design", 1500,
                 "Cybersecurity", 1500,
-                "Custom Enterprise Solutions", 1500
+                "Custom Enterprise Solutions", 1500,
               ]}
               speed={50}
               repeat={Infinity}
@@ -36,25 +39,44 @@ const HeroSection = () => {
           </span>
         </h2>
 
-        <p className="mt-6 text-lg text-neutral-400 max-w-lg">
+        <p className="mt-6 text-lg text-gray-500 max-w-lg">
           Empower your creativity and bring your ideas to life with our cutting-edge
           development solutions. Join us to turn your imagination into reality!
         </p>
+
+        <div className="mt-6 flex justify-center lg:justify-start gap-4">
+          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300" >
+          <a href="/" className="hover:text-blue-600 transition-all duration-300">Join Us</a>
+          </button>
+          {/* <button className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 hover:text-white transition-all duration-300">
+            Learn More
+          </button> */}
+        </div>
       </div>
 
       {/* Video Section */}
-      <div className="relative lg:w-1/2 flex justify-center items-center mt-8 lg:mt-0">
-        {/* Main Video */}
-        <div className="w-5/6 md:w-3/4 lg:w-2/3 rounded-xl overflow-hidden shadow-lg border border-blue-700 hover:scale-105 transition-transform duration-500 relative">
-          <video autoPlay loop muted className="w-full h-auto rounded-xl">
+      <div className="relative lg:w-1/2 flex justify-center items-center mt-10 lg:mt-0">
+        {/* Main Video - Enlarged */}
+        <div className="w-3/4 md:w-4/5 lg:w-[550px] rounded-xl overflow-hidden shadow-xl border border-blue-500 backdrop-blur-lg bg-white/10 hover:scale-105 hover:shadow-blue-500/50 transition-all duration-500 relative">
+          <video
+            autoPlay
+            loop
+            muted
+            className="w-full h-auto rounded-xl border border-white/20"
+          >
             <source src={video1} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
 
-        {/* Small Floating Video */}
-        <div className="absolute -bottom-6 -right-6 w-28 sm:w-36 md:w-44 lg:w-52 border border-blue-500 rounded-xl overflow-hidden shadow-md hover:scale-110 transition-transform duration-500">
-          <video autoPlay loop muted className="w-full h-auto rounded-xl">
+        {/* Floating Video - Bigger & Better Positioned */}
+        <div className="absolute -bottom-8 -right-10 w-36 sm:w-44 md:w-56 lg:w-64 border border-blue-400 rounded-xl overflow-hidden shadow-lg backdrop-blur-lg bg-white/10 hover:scale-110 hover:shadow-blue-400/50 transition-transform duration-500">
+          <video
+            autoPlay
+            loop
+            muted
+            className="w-full h-auto rounded-xl border border-white/20"
+          >
             <source src={video2} type="video/mp4" />
             Your browser does not support the video tag.
           </video>

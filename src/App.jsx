@@ -5,7 +5,7 @@ import FeatureSection from "./components/Service";
 import Workflow from "./components/Workflow";
 import Footer from "./components/Footer";
 import About from "./components/About";
-import Testimonials from "./components/Testimonials";
+// import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 // import OurClients from "./components/OurClients";
 import CareerPage from "./components/Careers";
@@ -25,7 +25,7 @@ const App = () => {
                 <FeatureSection />
                 <Workflow />
                 <About />
-                <Testimonials />
+                {/* <Testimonials /> */}
                 <Contact />
               </>
             }
