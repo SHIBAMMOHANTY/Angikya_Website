@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
-import OurClients from "./components/OurClients";
+// import OurClients from "./components/OurClients";
 import CareerPage from "./components/Careers";
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
             element={
               <>
                 <HeroSection />
-                <OurClients />
+                {/* <OurClients /> */}
                 <FeatureSection />
                 <Workflow />
                 <About />
