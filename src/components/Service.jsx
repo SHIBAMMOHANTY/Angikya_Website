@@ -17,9 +17,9 @@ const FeatureSection = () => {
     <div className="relative md:mt-6 lg:mt-12 xl:mt-16  border-neutral-800 py-16 px-6 sm:px-12">
       {/* Title */}
       <div className="text-center">
-        <span className="bg-blue-600 text-white rounded-full text-sm font-medium px-4 py-1 uppercase shadow-lg">
+        {/* <span className="bg-blue-600 text-white rounded-full text-sm font-medium px-4 py-1 uppercase shadow-lg">
           What We Offer
-        </span>
+        </span> */}
         <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-8 tracking-wide font-extrabold text-dark">
           Transforming Ideas with
           <span className="bg-gradient-to-r from-blue-400 to-blue-700 text-transparent bg-clip-text"> Innovation</span>

@@ -1,35 +1,50 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import Select from "react-select";
+
+const techOptions = [
+  { value: "React.js", label: "React.js" },
+  { value: "Vue.js", label: "Vue.js" },
+  { value: "Angular", label: "Angular" },
+  { value: "Next.js", label: "Next.js" },
+  { value: "Laravel", label: "Laravel" },
+  { value: "Django", label: "Django" },
+  { value: "Node.js", label: "Node.js" },
+  { value: "Flutter", label: "Flutter" },
+  { value: "React Native", label: "React Native" },
+  { value: "Other", label: "Other" },
+];
 
 const Contact = () => {
   const [form, setForm] = useState({
+    projectType: "",
+    techStack: [],
+    otherTech: "",
+    budget: "",
     name: "",
     email: "",
     company: "",
     mobile: "",
     requirements: "",
-    projectType: "",
-    budget: "",
-    techStack: [], // Array to store selected tech stack
     message: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const formRef = useRef(null); // Create a reference for the form
+  const formRef = useRef(null);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
 
-    if (type === "checkbox") {
-      // Handle checkbox selection for tech stack
-      const updatedTechStack = checked
-        ? [...form.techStack, value] // Add to array if checked
-        : form.techStack.filter((tech) => tech !== value); // Remove from array if unchecked
-      setForm({ ...form, [name]: updatedTechStack });
-    } else {
-      setForm({ ...form, [name]: value });
-    }
+  const handleTechStackChange = (selectedOptions) => {
+    const values = selectedOptions.map((option) => option.value);
+    setForm({
+      ...form,
+      techStack: values,
+      otherTech: values.includes("Other") ? "" : form.otherTech,
+    });
   };
 
   const handleSubmit = (e) => {
@@ -43,21 +58,22 @@ const Contact = () => {
           setLoading(false);
           setSuccess(true);
           if (formRef.current) {
-            formRef.current.reset(); // Reset the form fields
+            formRef.current.reset();
           }
           setForm({
+            projectType: "",
+            techStack: [],
+            otherTech: "",
+            budget: "",
             name: "",
             email: "",
             company: "",
             mobile: "",
             requirements: "",
-            projectType: "",
-            budget: "",
-            techStack: [],
             message: "",
           });
 
-          setTimeout(() => setSuccess(false), 3000); // Hide success message after 3s
+          setTimeout(() => setSuccess(false), 3000);
         },
         (err) => {
           console.error("FAILED...", err);
@@ -68,146 +84,90 @@ const Contact = () => {
   };
 
   return (
-    <div className="text-blue-600 min-h-screen flex flex-col items-center px-6 py-12 bg-[#F6F4F3]">
-      <h2 className="bg-gradient-to-r from-blue-500 to-blue-800 text-transparent bg-clip-text text-5xl font-bold text-center mb-8 ">
-        Contact Us
+    <div className="text-white min-h-screen flex flex-col items-center px-6 py-12 bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F3460]">
+      <h2 className="text-5xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+        Submit Your Proposal
       </h2>
 
-      <div className="w-full max-w-6xl grid md:grid-cols-2 gap-12">
-        
-        
-        {/* Map Section - Left Side */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-center items-center w-full"
-        >
-          <iframe
-            title="Bhubaneswar Location"
-            className="w-full h-[400px] rounded-xl shadow-lg"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30671.381929348515!2d85.81445751190295!3d20.29605823700627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909a6c7324b71%3A0x5e9b36dbff7cbf2b!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1710000000000"
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
-        </motion.div>
-        {/* Contact Form - Right Side */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="p-8 rounded-xl shadow-lg w-full bg-white"
-        >
-          <h3 className="text-3xl mb-6 font-semibold text-blue-500">
-            Submit Your Proposal
-          </h3>
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
-            <input
-              type="text"
-              name="name"
-              onChange={handleChange}
-              placeholder="Your Name"
-              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              onChange={handleChange}
-              placeholder="Your Email"
-              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
-              required
-            />
-            <input
-              type="text"
-              name="company"
-              onChange={handleChange}
-              placeholder="Company Name"
-              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
-            />
-            <input
-              type="tel"
-              name="mobile"
-              onChange={handleChange}
-              placeholder="Mobile Number (Mandatory)"
-              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
-              required
-            />
-            <textarea
-              name="requirements"
-              onChange={handleChange}
-              placeholder="Project Requirements"
-              rows="3"
-              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
-            ></textarea>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-3xl bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-xl border border-white/20"
+      >
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+          <select
+            name="projectType"
+            onChange={handleChange}
+            className="w-full p-3 rounded-md bg-white/20 text-white focus:ring focus:ring-blue-500 outline-none"
+            required
+          >
+            <option value="">What do you want to build?</option>
+            {["Static Website", "Dynamic Website", "Portfolio", "Blogs", "Mobile App", "Desktop App", "Custom Software", "Chat Bot", "Chrome Extension", "Other"].map((option) => (
+              <option key={option} value={option} className="text-black">
+                {option}
+              </option>
+            ))}
+          </select>
 
-            <select
-              name="projectType"
-              onChange={handleChange}
-              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
-              required
-            >
-              <option value="">What you want to build?</option>
-              <option value="Static Website">Static Website</option>
-              <option value="Dynamic Website">Dynamic Website</option>
-              <option value="Portfolio">Portfolio</option>
-              <option value="Blogs">Blogs</option>
-              <option value="Mobile App">Mobile App</option>
-              <option value="Desktop App">Desktop App</option>
-              <option value="Custom Software">Custom Software</option>
-              <option value="Chat Bot">Chat Bot</option>
-              <option value="Chrome Extension">Chrome Extension</option>
-            </select>
-
-            <input
-              type="text"
-              name="budget"
-              onChange={handleChange}
-              placeholder="Budget (in INR)"
-              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
+          <div>
+            <p className="text-white font-semibold mb-2">Preferred Tech Stack:</p>
+            <Select
+              options={techOptions}
+              isMulti
+              classNamePrefix="react-select"
+              className="text-black"
+              onChange={handleTechStackChange}
+              placeholder="Select Technologies"
             />
+            {form.techStack.includes("Other") && (
+              <input
+                type="text"
+                name="otherTech"
+                onChange={handleChange}
+                placeholder="Specify Other Technology"
+                className="w-full mt-2 p-3 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+              />
+            )}
+          </div>
 
-            {/* Multi-Select Checkboxes for Preferred Tech Stack */}
-            <div className="space-y-3">
-              <p className="text-blue-600 font-semibold">Preferred Tech Stack:</p>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  "React.js",
-                  "Vue.js",
-                  "Angular",
-                  "Next.js",
-                  "Laravel",
-                  "Django",
-                  "Node.js",
-                  "Flutter",
-                  "React Native",
-                ].map((tech) => (
-                  <label key={tech} className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      name="techStack"
-                      value={tech}
-                      onChange={handleChange}
-                      checked={form.techStack.includes(tech)}
-                      className="rounded text-blue-600 focus:ring-blue-500"
-                    />
-                    <span className="text-blue-600">{tech}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
+          <input
+            type="text"
+            name="budget"
+            onChange={handleChange}
+            placeholder="Budget (in INR)"
+            className="w-full p-3 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+          />
 
-            <button
-              type="submit"
-              className="bg-blue-600 hover:bg-blue-700 transition-all py-3 px-6 rounded-md font-bold w-full text-white"
-              disabled={loading}
-            >
-              {loading ? "Sending..." : success ? "Sent Successfully!" : "Submit Proposal"}
-            </button>
-          </form>
-        </motion.div>
+          {["name", "email", "company", "mobile"].map((field) => (
+            <input
+              key={field}
+              type={field === "email" ? "email" : "text"}
+              name={field}
+              onChange={handleChange}
+              placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+              className="w-full p-3 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+              required={field === "name" || field === "email" || field === "mobile"}
+            />
+          ))}
 
-      </div>
+          <textarea
+            name="requirements"
+            onChange={handleChange}
+            placeholder="Project Requirements"
+            rows="3"
+            className="w-full p-3 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+          ></textarea>
+
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition-all py-3 px-6 rounded-md font-bold w-full text-white shadow-md"
+            disabled={loading}
+          >
+            {loading ? "Sending..." : success ? "Sent Successfully!" : "Submit Proposal"}
+          </button>
+        </form>
+      </motion.div>
     </div>
   );
 };

@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaReact, FaNodeJs, FaPython, FaAws, FaDatabase, FaJava } from "react-icons/fa";
 import { SiMongodb, SiTailwindcss, SiDocker, SiGraphql, SiNextdotjs, SiTypescript, SiFirebase, SiKotlin, SiSupabase, SiOpenai } from "react-icons/si";
 
 const techStack = [
   {
+    id: 1,
     name: "React",
     icon: <FaReact className="text-blue-400 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -16,6 +17,7 @@ const techStack = [
     ]
   },
   { 
+    id: 2,
     name: "Next.js", 
     icon: <SiNextdotjs className="text-white text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -27,6 +29,7 @@ const techStack = [
     ]
   },
   { 
+    id: 3,
     name: "Node.js", 
     icon: <FaNodeJs className="text-green-400 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -38,6 +41,7 @@ const techStack = [
     ]
   },
   { 
+    id: 4,
     name: "TypeScript", 
     icon: <SiTypescript className="text-blue-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -49,6 +53,7 @@ const techStack = [
     ]
   },
   { 
+    id: 4,
     name: "MongoDB", 
     icon: <SiMongodb className="text-green-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -60,6 +65,7 @@ const techStack = [
     ]
   },
   { 
+    id: 5,
     name: "Tailwind CSS", 
     icon: <SiTailwindcss className="text-cyan-400 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -71,6 +77,7 @@ const techStack = [
     ]
   },
   { 
+    id: 6,
     name: "GraphQL", 
     icon: <SiGraphql className="text-pink-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -82,6 +89,7 @@ const techStack = [
     ]
   },
   { 
+    id: 7,
     name: "Docker", 
     icon: <SiDocker className="text-blue-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -93,6 +101,7 @@ const techStack = [
     ]
   },
   { 
+    id: 7,
     name: "AWS", 
     icon: <FaAws className="text-yellow-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -103,7 +112,8 @@ const techStack = [
       "4. Used by enterprises worldwide."
     ]
   },
-  { 
+  {
+    id: 8, 
     name: "Firebase", 
     icon: <SiFirebase className="text-orange-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -115,6 +125,7 @@ const techStack = [
     ]
   },
   { 
+    id: 9,
     name: "Supabase", 
     icon: <SiSupabase className="text-green-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -126,6 +137,7 @@ const techStack = [
     ]
   },
   { 
+    id: 10,
     name: "OpenAI", 
     icon: <SiOpenai className="text-gray-300 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -136,6 +148,7 @@ const techStack = [
     ]
   },
   { 
+    id: 11,
     name: "Python", 
     icon: <FaPython className="text-yellow-400 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -147,6 +160,7 @@ const techStack = [
     ]
   },
   { 
+    id: 12,
     name: "Kotlin", 
     icon: <SiKotlin className="text-purple-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -158,6 +172,7 @@ const techStack = [
     ]
   },
   { 
+    id: 13,
     name: "Java", 
     icon: <FaJava className="text-red-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -169,6 +184,7 @@ const techStack = [
     ]
   },
   { 
+    id: 14,
     name: "SQL Databases", 
     icon: <FaDatabase className="text-gray-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
@@ -180,11 +196,12 @@ const techStack = [
     ]
   },
 ];
-
 const TechStack = () => {
-  const [selectedTech, setSelectedTech] = useState(techStack[0]);
+  const [selectedTech, setSelectedTech] = useState(null);
+  const [hoveredTech, setHoveredTech] = useState(null);
 
   return (
+<<<<<<< Updated upstream
     <div className="mt-5 mb-5 pb-10 text-center flex flex-col lg:flex-row items-center justify-center lg:items-stretch lg:space-x-10 w-full">
       {/* Left Side - Grid */}
       <div className="w-full lg:w-1/2 h-[450px] bg-neutral-900 rounded-xl shadow-lg p-4"> {/* Reduced padding */}
@@ -204,31 +221,85 @@ const TechStack = () => {
             </motion.div>
           ))}
         </div>
+=======
+    <div className="flex flex-col items-center justify-center min-h-screen p-6">
+      {/* Title */}
+      <div className="text-center pb-16">
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-8 tracking-wide font-extrabold text-dark">
+          Tech
+          <span className="bg-gradient-to-r from-blue-400 to-blue-700 text-transparent bg-clip-text"> Stack</span>
+        </h2>
+>>>>>>> Stashed changes
       </div>
 
-      {/* Right Side - Tech Info */}
-      <div className="w-full lg:w-1/2 h-[450px] bg-neutral-800 rounded-lg shadow-lg p-6 mt-6 lg:mt-0">
-        <div className="flex flex-col justify-start h-full">
-          <motion.h3 
-            className="text-2xl sm:text-3xl font-bold text-blue-400 mb-4"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+      {/* Tech Stack Grid */}
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl">
+        {techStack.map((tech) => (
+          <motion.div
+            key={tech.id}
+            className="relative flex items-center justify-center p-4 sm:p-6 bg-neutral-800 rounded-lg shadow-lg cursor-pointer"
+            whileHover={{ scale: 1.1 }} // Scale effect on hover
+            whileTap={{ scale: 0.9 }} // Scale effect on click
+            onMouseEnter={() => setHoveredTech(tech.id)} // Set hovered tech
+            onMouseLeave={() => setHoveredTech(null)} // Reset hovered tech
+            onClick={() => setSelectedTech(tech)} // Set selected tech
           >
-            {selectedTech.name}
-          </motion.h3>
-          <motion.div 
-            className="text-neutral-300 text-lg space-y-2"
+            {/* Icon */}
+            <motion.div
+              className="w-full h-full flex items-center justify-center"
+              initial={{ opacity: 1 }}
+              animate={{ opacity: hoveredTech === tech.id ? 0 : 1 }} // Hide icon on hover
+              transition={{ duration: 0.3 }} // Smooth transition
+            >
+              {tech.icon}
+            </motion.div>
+
+            {/* "Click Me" Text */}
+            <motion.div
+              className="absolute w-full h-full flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: hoveredTech === tech.id ? 1 : 0 }} // Show text on hover
+              transition={{ duration: 0.3 }} // Smooth transition
+            >
+              <span className="text-sm sm:text-base font-semibold text-neutral-200">
+                Click Me
+              </span>
+            </motion.div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Selected Tech Details Modal */}
+      <AnimatePresence>
+        {selectedTech && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedTech(null)} // Close modal on outside click
           >
-            {selectedTech.description.map((line, index) => (
-              <p key={index} className="text-sm sm:text-base text-start">{line}</p>
-            ))}
+            <motion.div
+              className="w-full max-w-2xl bg-neutral-800 rounded-lg shadow-lg p-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
+            >
+              <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text mb-4">
+                {selectedTech.name}
+              </h3>
+              <div className="text-neutral-300 space-y-2">
+                {selectedTech.description.map((line, index) => (
+                  <p key={index} className="text-sm sm:text-base">
+                    {line}
+                  </p>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
-        </div>
-      </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
