@@ -10,11 +10,13 @@ import Contact from "./components/Contact";
 // import OurClients from "./components/OurClients";
 import CareerPage from "./components/Careers";
 import Ads from "./components/Ads"
+import Whatsapp from "./components/Whatsapp";
 
 
 const App = () => {
   return (
     <Router>
+      <Whatsapp/>
       <Ads/>
       <Navbar />
       <div className="  ">
