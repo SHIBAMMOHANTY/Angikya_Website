@@ -3,13 +3,13 @@ import { FaLaptopCode, FaMobileAlt, FaCloud, FaRobot, FaShieldAlt, FaDatabase, F
 const services = [
   { icon: <FaLaptopCode size={28} />, title: "Web Development", description: "Custom websites, web apps, and e-commerce solutions with modern tech stacks." },
   { icon: <FaMobileAlt size={28} />, title: "Mobile App Development", description: "Native and cross-platform mobile applications with smooth UI/UX." },
-  { icon: <FaCloud size={28} />, title: "Cloud Computing", description: "Cloud migration, architecture design, and serverless solutions." },
   { icon: <FaRobot size={28} />, title: "AI & Automation", description: "AI-driven automation, chatbots, and machine learning solutions." },
-  { icon: <FaShieldAlt size={28} />, title: "Cybersecurity", description: "Secure software solutions with encryption, firewall, and threat detection." },
   { icon: <FaDatabase size={28} />, title: "Database Management", description: "Optimized databases, data warehousing, and real-time analytics." },
   { icon: <FaCogs size={28} />, title: "SaaS Development", description: "Scalable SaaS applications with multi-tenant architecture." },
   { icon: <FaServer size={28} />, title: "DevOps & Hosting", description: "CI/CD pipelines, AWS, Azure, and Google Cloud hosting solutions." },
   { icon: <FaUsers size={28} />, title: "UI/UX Design", description: "User-centric interfaces with Figma, Adobe XD, and modern UI trends." },
+  { icon: <FaCloud size={28} />, title: "Cloud Computing", description: "Cloud migration, architecture design, and serverless solutions." },
+  { icon: <FaShieldAlt size={28} />, title: "Cybersecurity", description: "Secure software solutions with encryption, firewall, and threat detection." },
 ];
 
 const FeatureSection = () => {

@@ -7,10 +7,11 @@ const Contact = () => {
     name: "",
     email: "",
     company: "",
+    mobile: "",
     requirements: "",
-    websiteType: "",
+    projectType: "",
     budget: "",
-    techStack: "",
+    techStack: [], // Array to store selected tech stack
     message: "",
   });
   const [loading, setLoading] = useState(false);
@@ -18,7 +19,17 @@ const Contact = () => {
   const formRef = useRef(null); // Create a reference for the form
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+
+    if (type === "checkbox") {
+      // Handle checkbox selection for tech stack
+      const updatedTechStack = checked
+        ? [...form.techStack, value] // Add to array if checked
+        : form.techStack.filter((tech) => tech !== value); // Remove from array if unchecked
+      setForm({ ...form, [name]: updatedTechStack });
+    } else {
+      setForm({ ...form, [name]: value });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -38,10 +49,11 @@ const Contact = () => {
             name: "",
             email: "",
             company: "",
+            mobile: "",
             requirements: "",
-            websiteType: "",
+            projectType: "",
             budget: "",
-            techStack: "",
+            techStack: [],
             message: "",
           });
 
@@ -62,9 +74,10 @@ const Contact = () => {
       </h2>
 
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-12">
-        {/* Contact Form */}
+        
+        {/* Contact Form - Right Side */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           className="p-8 rounded-xl shadow-lg w-full bg-white"
@@ -73,41 +86,113 @@ const Contact = () => {
             Submit Your Proposal
           </h3>
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
-            <input type="text" name="name" onChange={handleChange} placeholder="Your Name" className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none" required />
-            <input type="email" name="email" onChange={handleChange} placeholder="Your Email" className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none" required />
-            <input type="text" name="company" onChange={handleChange} placeholder="Company Name" className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none" />
-            <textarea name="requirements" onChange={handleChange} placeholder="Project Requirements" rows="3" className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"></textarea>
+            <input
+              type="text"
+              name="name"
+              onChange={handleChange}
+              placeholder="Your Name"
+              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              onChange={handleChange}
+              placeholder="Your Email"
+              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
+              required
+            />
+            <input
+              type="text"
+              name="company"
+              onChange={handleChange}
+              placeholder="Company Name"
+              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
+            />
+            <input
+              type="tel"
+              name="mobile"
+              onChange={handleChange}
+              placeholder="Mobile Number (Mandatory)"
+              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
+              required
+            />
+            <textarea
+              name="requirements"
+              onChange={handleChange}
+              placeholder="Project Requirements"
+              rows="3"
+              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
+            ></textarea>
 
-            <select name="websiteType" onChange={handleChange} className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none">
-              <option value="">Select Website Type</option>
-              <option value="E-commerce">E-commerce</option>
+            <select
+              name="projectType"
+              onChange={handleChange}
+              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
+              required
+            >
+              <option value="">What you want to build?</option>
+              <option value="Static Website">Static Website</option>
+              <option value="Dynamic Website">Dynamic Website</option>
               <option value="Portfolio">Portfolio</option>
-              <option value="Business">Business</option>
-              <option value="Blog">Blog</option>
-              <option value="Custom">Custom</option>
+              <option value="Blogs">Blogs</option>
+              <option value="Mobile App">Mobile App</option>
+              <option value="Desktop App">Desktop App</option>
+              <option value="Custom Software">Custom Software</option>
+              <option value="Chat Bot">Chat Bot</option>
+              <option value="Chrome Extension">Chrome Extension</option>
             </select>
 
-            <input type="text" name="budget" onChange={handleChange} placeholder="Budget (in USD)" className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none" />
+            <input
+              type="text"
+              name="budget"
+              onChange={handleChange}
+              placeholder="Budget (in INR)"
+              className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none"
+            />
 
-            <select name="techStack" onChange={handleChange} className="w-full p-3 rounded-md bg-gray-100 text-blue-600 focus:ring focus:ring-blue-500 outline-none">
-              <option value="">Select Tech Stack</option>
-              <option value="React.js">React.js</option>
-              <option value="Vue.js">Vue.js</option>
-              <option value="Angular">Angular</option>
-              <option value="Next.js">Next.js</option>
-              <option value="Laravel">Laravel</option>
-              <option value="Django">Django</option>
-            </select>
+            {/* Multi-Select Checkboxes for Preferred Tech Stack */}
+            <div className="space-y-3">
+              <p className="text-blue-600 font-semibold">Preferred Tech Stack:</p>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  "React.js",
+                  "Vue.js",
+                  "Angular",
+                  "Next.js",
+                  "Laravel",
+                  "Django",
+                  "Node.js",
+                  "Flutter",
+                  "React Native",
+                ].map((tech) => (
+                  <label key={tech} className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      name="techStack"
+                      value={tech}
+                      onChange={handleChange}
+                      checked={form.techStack.includes(tech)}
+                      className="rounded text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="text-blue-600">{tech}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
 
-            <button type="submit" className="bg-blue-600 hover:bg-blue-700 transition-all py-3 px-6 rounded-md font-bold w-full text-white" disabled={loading}>
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-700 transition-all py-3 px-6 rounded-md font-bold w-full text-white"
+              disabled={loading}
+            >
               {loading ? "Sending..." : success ? "Sent Successfully!" : "Submit Proposal"}
             </button>
           </form>
         </motion.div>
-
-        {/* Map Section - Centered */}
+        {/* Map Section - Left Side */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           className="flex justify-center items-center w-full"
@@ -120,6 +205,7 @@ const Contact = () => {
             loading="lazy"
           ></iframe>
         </motion.div>
+
       </div>
     </div>
   );

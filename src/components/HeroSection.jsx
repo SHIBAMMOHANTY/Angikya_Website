@@ -11,9 +11,9 @@ const HeroSection = () => {
       {/* Text Section */}
       <div className="lg:w-1/2 text-center lg:text-left px-4">
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-wide">
-          ANGIKYA Software{" "}
+          ANGIKYA {" "}
           <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-transparent bg-clip-text">
-            Technology
+            
           </span>
         </h1>
 
@@ -46,7 +46,7 @@ const HeroSection = () => {
 
         <div className="mt-6 flex justify-center lg:justify-start gap-4">
           <button className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300" >
-          <a href="/" className="hover:text-blue-600 transition-all duration-300">Join Us</a>
+          <a href="/" className="hover:text-blue-600 transition-all duration-300">Join Team</a>
           </button>
           {/* <button className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 hover:text-white transition-all duration-300">
             Learn More
