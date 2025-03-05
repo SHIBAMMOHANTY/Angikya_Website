@@ -16,7 +16,7 @@ const HeroSection = () => {
         </h1>
 
         {/* Typing Effect */}
-        <h2 className="text-xl sm:text-3xl lg:text-4xl mt-4 text-gray-600">
+        <h2 className="text-xl sm:text-3xl lg:text-4xl mt-4 text-gray-200">
           We excel in{" "}
           <span className="text-blue-600 font-semibold">
             <TypeAnimation
@@ -37,7 +37,7 @@ const HeroSection = () => {
           </span>
         </h2>
 
-        <p className="mt-6 text-lg text-gray-500 max-w-lg">
+        <p className="mt-6 text-lg text-gray-100 tracking-wide max-w-lg">
           Empower your creativity and bring your ideas to life with our cutting-edge
           development solutions. Join us to turn your imagination into reality!
         </p>
