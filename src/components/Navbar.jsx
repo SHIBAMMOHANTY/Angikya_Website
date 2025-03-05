@@ -11,62 +11,42 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 py-3 bg-dark border-b border-neutral-700/80">
-      <div className="container px-4 xl:px-16 mx-auto  relative lg:text-sm">
+    <nav className="sticky top-0 z-50 py-3 bg-gradient-to-r from-gray-900 via-gray-800 to-black border-b border-neutral-700/80">
+      <div className="container px-4 xl:px-16 mx-auto relative lg:text-sm">
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
             <img className="h-10 w-10 mr-2" src={logo} alt="Logo" />
-            <span className="md:text-xl text-[.5rem] tracking-tight font-bold">ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED </span>
+            <span className="md:text-xl text-[.5rem] tracking-tight font-bold text-white">ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED </span>
           </div>
-          <ul className="hidden lg:flex ml-14 space-x-12">
+          <ul className="hidden lg:flex ml-14 space-x-12 text-white">
             {navItems.map((item, index) => (
               <li key={index}>
-                <a href={item.href}>{item.label}</a>
+                <a href={item.href} className="hover:text-blue-400 transition-colors duration-300">{item.label}</a>
               </li>
             ))}
           </ul>
-          {/* <div className="hidden lg:flex justify-center space-x-12 items-center">
-            <a href="#" className="py-2 px-3 border rounded-md">
-              Sign In
-            </a>
-            <a
-              href="#"
-              className="bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md"
-            >
-              Create an account
-            </a>
-          </div> */}
           <div className="lg:hidden md:flex flex-col justify-end">
-            <button onClick={toggleNavbar}>
-              {mobileDrawerOpen ? <X /> : <Menu />}
+            <button onClick={toggleNavbar} className="transition-transform duration-300 ease-in-out transform hover:scale-110 text-white">
+              {mobileDrawerOpen ? <X className="transition-all duration-300 ease-in-out" /> : <Menu className="transition-all duration-300 ease-in-out" />}
             </button>
           </div>
         </div>
-        {mobileDrawerOpen && (
-          <div className="fixed right-0 z-20 bg-gray-200 w-full p-12 flex flex-col justify-center items-center lg:hidden">
-          <ul>
+        <div
+          className={`fixed top-0 left-0 w-full h-full z-40 bg-gray-900 flex flex-col justify-center items-center lg:hidden transition-transform duration-500 ease-in-out ${mobileDrawerOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'}`}
+        >
+          <button onClick={toggleNavbar} className="absolute top-6 right-6 text-white text-3xl">
+            <X />
+          </button>
+          <ul className="text-white text-2xl space-y-6">
             {navItems.map((item, index) => (
-              <li key={index} className="py-4">
-                <a href={item.href} className="text-black font-bold">
+              <li key={index}>
+                <a href={item.href} className="text-white font-bold hover:text-blue-400 transition-colors duration-300">
                   {item.label}
                 </a>
               </li>
             ))}
           </ul>
-          <div className="flex space-x-6">
-            {/* <a href="#" className="py-2 px-3 border rounded-md text-black font-bold">
-              Sign In
-            </a> */}
-            {/* <a
-              href="#"
-              className="py-2 px-3 rounded-md bg-gradient-to-r from-blue-500 to-blue-800 text-white font-bold"
-            >
-              Create an account
-            </a> */}
-          </div>
         </div>
-        
-        )}
       </div>
     </nav>
   );

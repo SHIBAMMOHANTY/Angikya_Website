@@ -49,20 +49,22 @@ const AboutUs = () => {
         ))}
       </div>
 
-      {/* Call to Action */}
+      <div className="pointer-events-auto">
       <motion.div
-        className="mt-20 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.4 }}
-      >
-        <a
-          href="/"
-          className="px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg hover:scale-105 transition-all"
-        >
-          <a href="/" className="hover:text-blue-400 transition-all duration-300">Join Us</a>
-        </a>
-      </motion.div>
+  className="mt-20 text-center relative z-40"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1, delay: 0.4 }}
+>
+  <a
+    href="/"
+    className="px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg hover:scale-105 hover:text-blue-400 transition-all duration-300 ease-in-out"
+  >
+    Join Us
+  </a>
+</motion.div>
+
+</div>
     </div>
   );
 };

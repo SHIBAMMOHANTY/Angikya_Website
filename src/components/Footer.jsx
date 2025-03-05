@@ -1,15 +1,28 @@
 import { FaLinkedin, FaTwitter, FaGithub, FaFacebook } from "react-icons/fa";
+import logo from "../assets/profile-pictures/angikya.png";
 
 const Footer = () => {
   return (
     <footer className="mt-10 py-8 text-blue-900 bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F3460] px-3 md:px-6 lg:px-12 xl:px-20">
       <div className=" mx-auto px-6 gap-2 md:gap-8 flex flex-col md:flex-row justify-between ">
         {/* Left Column: Logo, Company Name, and Address */}
-        <div className="text-center md:text-left flex items-center">
-          <h3 className="text-2xl font-bold mb-4 text-white">
-            ANGIKYA Technology
-          </h3>
+        <div className="text-center md:text-left flex flex-col items-center md:items-start space-y-2">
+          <h3 className="text-2xl font-bold text-white">ANGIKYA Technology</h3>
+          <img
+            className="w-20 h-20 md:w-26 md:h-26 object-contain"
+            src={logo}
+            alt="ANGIKYA Technology"
+          />
+          <p className="text-white text-sm md:text-base">
+            5th Floor, Flat No-507, <br />
+            Promod Heights, <br />
+            Bhubaneswar, Odisha
+            <br /> 
+          </p>
         </div>
+
+
+
         {/* Right Column: Empty (Optional) */}
         {/* <div className="text-center md:text-left">
         <h3 className="text-2xl font-bold mb-4 text-blue-900">ANGIKYA Technology</h3>
