@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function ContactUs() {
   return (
-    <div className="relative flex items-center h-[2px] justify-end min-h-[0px] p-4 bg-gradient-to-r  bg-blue-400  text-white  shadow-md overflow-hidden hidden md:block">
+    <div className="relative flex items-center h-[2px] justify-end min-h-[0px] p-4 bg-gradient-to-r  bg-blue-400  text-white  shadow-md overflow-hidden hidden md:flex">
       {/* Animated Twinkling Stars */}
       {[...Array(15)].map((_, i) => (
         <motion.div
