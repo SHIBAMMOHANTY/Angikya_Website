@@ -75,6 +75,22 @@ const Contact = () => {
 
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-12">
         
+        
+        {/* Map Section - Left Side */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center items-center w-full"
+        >
+          <iframe
+            title="Bhubaneswar Location"
+            className="w-full h-[400px] rounded-xl shadow-lg"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30671.381929348515!2d85.81445751190295!3d20.29605823700627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909a6c7324b71%3A0x5e9b36dbff7cbf2b!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1710000000000"
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+        </motion.div>
         {/* Contact Form - Right Side */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -189,21 +205,6 @@ const Contact = () => {
               {loading ? "Sending..." : success ? "Sent Successfully!" : "Submit Proposal"}
             </button>
           </form>
-        </motion.div>
-        {/* Map Section - Left Side */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-center items-center w-full"
-        >
-          <iframe
-            title="Bhubaneswar Location"
-            className="w-full h-[400px] rounded-xl shadow-lg"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30671.381929348515!2d85.81445751190295!3d20.29605823700627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909a6c7324b71%3A0x5e9b36dbff7cbf2b!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1710000000000"
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
         </motion.div>
 
       </div>
