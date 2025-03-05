@@ -29,7 +29,7 @@ const AboutUs = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <span className=" font-bold tracking-wide bg-gradient-to-r from-red-800 via-blue-500 to-blue-400 text-transparent bg-clip-text">Angikya </span>is a software company specializing in innovative solutions for businesses. Our skilled team collaborates closely with clients to deliver customized services, including web and mobile app development, cloud computing, and e-commerce solutions. We are dedicated to exceptional service, leveraging cutting-edge technologies to create scalable, reliable, and efficient software.
+          <span className=" font-bold tracking-wide bg-gradient-to-r from-red-800 via-blue-500 to-blue-400 text-transparent bg-clip-text">Angikya </span>is a software company specializing in innovative solutions for businesses. Our skilled team collaborates closely with clients to deliver customized services, including web and mobile app development, cloud computing, and e-commerce solutions.
         </motion.p>
       </div>
 
