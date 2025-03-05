@@ -36,7 +36,7 @@ const AboutUs = () => {
 
       {/* Glassmorphic Info Cards */}
       <div className="relative max-w-7xl mx-auto grid md:grid-cols-3 gap-10 mt-16">
-        {[{ number: "1+", label: "Years of Innovation" }, { number: "10+", label: "Successful Projects" }, { number: "100%", label: "Client Satisfaction" }].map((item, index) => (
+        {[{ number: "1+", label: "Years of Innovation" }, { number: "2+", label: "Successful Projects" }, { number: "100%", label: "Client Satisfaction" }].map((item, index) => (
           <motion.div
             key={index}
             className="p-8 rounded-3xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg"
@@ -57,7 +57,7 @@ const AboutUs = () => {
         transition={{ duration: 1, delay: 0.4 }}
       >
         <a
-          href="#"
+          href="/"
           className="px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg hover:scale-105 transition-all"
         >
           <a href="/" className="hover:text-blue-400 transition-all duration-300">Join Us</a>

@@ -2,11 +2,11 @@ import { FaLinkedin, FaTwitter, FaGithub, FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="mt-10 py-8 text-blue-900 bg-gray-100 px-3 md:px-6 lg:px-12 xl:px-20">
+    <footer className="mt-10 py-8 text-blue-900 bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F3460] px-3 md:px-6 lg:px-12 xl:px-20">
       <div className=" mx-auto px-6 gap-2 md:gap-8 flex flex-col md:flex-row justify-between ">
         {/* Left Column: Logo, Company Name, and Address */}
         <div className="text-center md:text-left flex items-center">
-          <h3 className="text-2xl font-bold mb-4 text-blue-900">
+          <h3 className="text-2xl font-bold mb-4 text-white">
             ANGIKYA Technology
           </h3>
         </div>
@@ -23,11 +23,11 @@ const Footer = () => {
 
         {/* Middle Column 1: Quick Links */}
         <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-12">
-          <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-2 tracking-wide text-blue-900">
+          <div className="text-center  md:text-left">
+            <h3 className="text-xl font-bold mb-2 tracking-wide text-white">
               Quick Links
             </h3>
-            <ul className="space-y-2 text-sm font-medium text-blue-800">
+            <ul className="space-y-2 text-sm font-medium text-white">
               <li>
                 <a
                   href="/about"
@@ -73,13 +73,13 @@ const Footer = () => {
 
           {/* Middle Column 2: Social Media Links */}
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-4 text-blue-900">Follow Us</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">Follow Us</h3>
             <div className="flex justify-center md:justify-start space-x-4">
               <a
                 href="https://linkedin.com/company/ANGIKYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-blue-900 hover:text-blue-600 transition-transform transform hover:scale-110"
+                className="text-2xl text-white hover:text-blue-600 transition-transform transform hover:scale-110"
               >
                 <FaLinkedin />
               </a>
@@ -87,7 +87,7 @@ const Footer = () => {
                 href="https://twitter.com/ANGIKYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-blue-900 hover:text-blue-600 transition-transform transform hover:scale-110"
+                className="text-2xl text-white hover:text-blue-600 transition-transform transform hover:scale-110"
               >
                 <FaTwitter />
               </a>
@@ -95,7 +95,7 @@ const Footer = () => {
                 href="https://github.com/ANGIKYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-blue-900 hover:text-blue-600 transition-transform transform hover:scale-110"
+                className="text-2xl text-white hover:text-blue-600 transition-transform transform hover:scale-110"
               >
                 <FaGithub />
               </a>
@@ -103,7 +103,7 @@ const Footer = () => {
                 href="https://facebook.com/ANGIKYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-blue-900 hover:text-blue-600 transition-transform transform hover:scale-110"
+                className="text-2xl text-white hover:text-blue-600 transition-transform transform hover:scale-110"
               >
                 <FaFacebook />
               </a>
@@ -113,7 +113,7 @@ const Footer = () => {
       </div>
 
       {/* Reserved Rights Section */}
-      <div className="mt-8 text-center md:text-center text-sm font-medium text-blue-800 pt-6 border-t border-blue-200">
+      <div className="mt-8 text-center md:text-center text-sm font-medium text-white pt-6 border-t border-blue-200">
         <p className="max-w-6xl mx-auto px-6">
           &copy; {new Date().getFullYear()} ANGIKYA Technology. All rights
           reserved.

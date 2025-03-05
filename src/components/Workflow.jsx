@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-hii
-=======
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaReact, FaNodeJs, FaPython, FaAws, FaDatabase, FaJava } from "react-icons/fa";
@@ -287,4 +284,3 @@ const TechStack = () => {
 };
 
 export default TechStack;
->>>>>>> Stashed changes
