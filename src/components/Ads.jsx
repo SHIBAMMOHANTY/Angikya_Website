@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function ContactUs() {
   return (
-    <div className="relative flex items-center h-[2px] justify-end min-h-[0px] p-4 bg-gradient-to-r  bg-blue-400  text-white  shadow-md overflow-hidden">
+    <div className="relative flex items-center h-[2px] justify-end min-h-[0px] p-4 bg-gradient-to-r  bg-blue-400  text-white  shadow-md overflow-hidden hidden md:block">
       {/* Animated Twinkling Stars */}
       {[...Array(15)].map((_, i) => (
         <motion.div
@@ -29,9 +29,9 @@ export default function ContactUs() {
 
       {/* Contact Information */}
       <div className="flex flex-col sm:flex-row items-center justify-end gap-4 text-sm sm:text-base">
-        <p className="font-medium">📞 +91 98765 43210</p>
-        <p className="font-medium">📧 connect@angikya.com</p>
-        <p className="font-medium">🌐 www.angikya.com</p>
+        <p className="font-medium tracking-wide">📞 +91 98765 43210</p>
+        <p className="font-medium tracking-wide">📧 connect@angikya.com</p>
+        <p className="font-medium tracking-wide">🌐 www.angikya.com</p>
       </div>
     </div>
   );
