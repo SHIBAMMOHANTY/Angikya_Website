@@ -17,7 +17,7 @@ const FeatureSection = () => {
     <div className="relative md:mt-6 lg:mt-12 xl:mt-16  border-neutral-800 py-16 px-6 sm:px-12">
       {/* Title */}
       <div className="text-center">
-        <span className="bg-blue-600 text-white rounded-full text-sm font-medium px-4 py-1 uppercase shadow-lg">
+        <span className="bg-blue-600 text-white rounded-full text-sm font-medium px-4 py-1 uppercase shadow-lg md:tracking-wider">
           What We Offer
         </span>
         <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-8 tracking-wide font-extrabold text-dark">
@@ -27,16 +27,16 @@ const FeatureSection = () => {
       </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-8 md:mt-14">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto mt-8 md:mt-14">
         {services.map((service, index) => (
           <div key={index} className="p-6 bg-gray-900 rounded-2xl border border-gray-800 shadow-md hover:border-blue-500 transition-all duration-300">
             <div className="flex items-center space-x-4">
               <div className="p-4 bg-blue-500/20 text-blue-500 rounded-full">
                 {service.icon}
               </div>
-              <h5 className="text-xl font-semibold text-white">{service.title}</h5>
+              <h5 className="text-xl font-semibold text-white tracking-wider">{service.title}</h5>
             </div>
-            <p className="text-gray-400 mt-4 text-sm leading-relaxed">{service.description}</p>
+            <p className="text-gray-100 tracking-wider mt-4 text-sm leading-relaxed">{service.description}</p>
           </div>
         ))}
       </div>
