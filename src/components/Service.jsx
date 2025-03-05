@@ -14,7 +14,7 @@ const services = [
 
 const FeatureSection = () => {
   return (
-    <div className="relative mt-20  border-neutral-800 py-16 px-6 sm:px-12">
+    <div className="relative md:mt-6 lg:mt-12 xl:mt-16  border-neutral-800 py-16 px-6 sm:px-12">
       {/* Title */}
       <div className="text-center">
         <span className="bg-blue-600 text-white rounded-full text-sm font-medium px-4 py-1 uppercase shadow-lg">
@@ -27,7 +27,7 @@ const FeatureSection = () => {
       </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-14">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-8 md:mt-14">
         {services.map((service, index) => (
           <div key={index} className="p-6 bg-gray-900 rounded-2xl border border-gray-800 shadow-md hover:border-blue-500 transition-all duration-300">
             <div className="flex items-center space-x-4">
