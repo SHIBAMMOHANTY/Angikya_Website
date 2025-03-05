@@ -52,7 +52,7 @@ const Contact = () => {
     setLoading(true);
 
     emailjs
-      .send("your_service_id", "your_template_id", form, "your_user_id")
+      .send("service_w0mr93k", "template_qwecn9n", form, "khTulBgT8kM_O_R84")
       .then(
         () => {
           setLoading(false);
