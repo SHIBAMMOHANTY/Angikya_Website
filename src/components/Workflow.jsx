@@ -8,6 +8,7 @@ const techStack = [
     name: "React",
     icon: <FaReact className="text-blue-400 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A JavaScript library for building user interfaces. Used for modern web apps with fast rendering.",
       "1. A JavaScript library for building interactive user interfaces.",
       "2. Helps create fast and smooth web applications.",
       "3. Used by companies like Facebook, Instagram, and Airbnb.",
@@ -18,6 +19,7 @@ const techStack = [
     name: "Next.js", 
     icon: <SiNextdotjs className="text-white text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A React framework for server-side rendering, static site generation, and API routes.",
       "1. A React framework for server-side rendering (SSR) and static site generation (SSG).",
       "2. Simplifies API routes and file-based routing.",
       "3. Optimized for performance and SEO.",
@@ -28,6 +30,7 @@ const techStack = [
     name: "Node.js", 
     icon: <FaNodeJs className="text-green-400 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A JavaScript runtime for building fast, scalable server-side applications.",
       "1. A JavaScript runtime built on Chrome's V8 engine.",
       "2. Enables building fast and scalable server-side applications.",
       "3. Non-blocking I/O model for high performance.",
@@ -38,6 +41,7 @@ const techStack = [
     name: "TypeScript", 
     icon: <SiTypescript className="text-blue-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A strongly typed JavaScript language that helps catch errors early in development.",
       "1. A strongly typed superset of JavaScript.",
       "2. Helps catch errors during development.",
       "3. Improves code quality and maintainability.",
@@ -48,6 +52,7 @@ const techStack = [
     name: "MongoDB", 
     icon: <SiMongodb className="text-green-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A NoSQL database used for scalable applications with flexible data structures." ,
       "1. A NoSQL database for scalable applications.",
       "2. Uses flexible JSON-like documents for data storage.",
       "3. Ideal for real-time applications and big data.",
@@ -58,6 +63,7 @@ const techStack = [
     name: "Tailwind CSS", 
     icon: <SiTailwindcss className="text-cyan-400 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A utility-first CSS framework for building modern, responsive designs efficiently." ,
       "1. A utility-first CSS framework.",
       "2. Enables rapid UI development with pre-defined classes.",
       "3. Highly customizable and responsive.",
@@ -68,6 +74,7 @@ const techStack = [
     name: "GraphQL", 
     icon: <SiGraphql className="text-pink-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+     "A query language that allows efficient fetching of data from APIs." ,
       "1. A query language for APIs.",
       "2. Allows clients to request only the data they need.",
       "3. Reduces over-fetching and under-fetching of data.",
@@ -78,6 +85,7 @@ const techStack = [
     name: "Docker", 
     icon: <SiDocker className="text-blue-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A platform to containerize applications, making deployment easier and more reliable." ,
       "1. A platform for containerizing applications.",
       "2. Simplifies deployment and scaling.",
       "3. Ensures consistency across development environments.",
@@ -88,6 +96,7 @@ const techStack = [
     name: "AWS", 
     icon: <FaAws className="text-yellow-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A cloud computing platform offering storage, computing, and machine learning services." ,
       "1. A cloud computing platform by Amazon.",
       "2. Offers services like EC2, S3, and Lambda.",
       "3. Scalable and cost-effective solutions.",
@@ -98,6 +107,7 @@ const techStack = [
     name: "Firebase", 
     icon: <SiFirebase className="text-orange-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A backend-as-a-service for authentication, databases, and hosting.",
       "1. A backend-as-a-service (BaaS) platform.",
       "2. Provides authentication, real-time databases, and hosting.",
       "3. Easy integration with mobile and web apps.",
@@ -108,6 +118,7 @@ const techStack = [
     name: "Supabase", 
     icon: <SiSupabase className="text-green-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "An open-source alternative to Firebase, offering real-time databases and authentication." ,
       "1. An open-source alternative to Firebase.",
       "2. Offers real-time databases and authentication.",
       "3. Built on PostgreSQL for scalability.",
@@ -128,6 +139,7 @@ const techStack = [
     name: "Python", 
     icon: <FaPython className="text-yellow-400 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A versatile programming language widely used in AI, web development, and automation." ,
       "1. A versatile programming language.",
       "2. Widely used in AI, web development, and automation.",
       "3. Simple syntax and extensive libraries.",
@@ -138,6 +150,7 @@ const techStack = [
     name: "Kotlin", 
     icon: <SiKotlin className="text-purple-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A modern programming language for Android development." ,
       "1. A modern programming language for Android development.",
       "2. Fully interoperable with Java.",
       "3. Reduces boilerplate code and improves productivity.",
@@ -148,6 +161,7 @@ const techStack = [
     name: "Java", 
     icon: <FaJava className="text-red-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "A robust, object-oriented language used for enterprise applications and Android development." ,
       "1. A robust, object-oriented programming language.",
       "2. Used for enterprise applications and Android development.",
       "3. Platform-independent and highly scalable.",
@@ -158,6 +172,7 @@ const techStack = [
     name: "SQL Databases", 
     icon: <FaDatabase className="text-gray-500 text-3xl sm:text-4xl" />, // Reduced icon size
     description: [
+      "Structured databases used for managing relational data." ,
       "1. Structured databases for managing relational data.",
       "2. Supports complex queries and transactions.",
       "3. Used in applications like banking and e-commerce.",
