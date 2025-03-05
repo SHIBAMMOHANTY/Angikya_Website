@@ -185,7 +185,7 @@ const TechStack = () => {
   const [selectedTech, setSelectedTech] = useState(techStack[0]);
 
   return (
-    <div className="mt-5 mb-5 pb-10 text-center flex flex-col lg:flex-row items-center justify-center lg:items-stretch lg:space-x-10 w-full">
+    <div className="mt-1 lg:mt-6  mb-5 pb-10 text-center flex flex-col lg:flex-row items-center justify-center lg:items-stretch lg:space-x-10 w-full px-3 md:px-6 lg:px-12 xl:px-20">
       {/* Left Side - Grid */}
       <div className="w-full lg:w-1/2 h-[500px] bg-neutral-900 rounded-xl shadow-lg p-4"> {/* Reduced padding */}
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 sm:gap-4"> {/* Reduced gap */}
