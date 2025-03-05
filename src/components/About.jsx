@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const AboutUs = () => {
   return (
-    <div className="relative text-white py-24 px-6 overflow-hidden rounded-3xl">
+    <div className="relative text-white py-12 md:16 lg:py-20 xl:py-16 px-6 overflow-hidden rounded-3xl">
       {/* Animated Background Elements */}
       <motion.div
         className="absolute top-0 left-0 w-full h-full  via-transparent to-purple-500/10 blur-3xl opacity-30 rounded-3xl"
@@ -14,7 +14,7 @@ const AboutUs = () => {
       <div className="relative max-w-6xl mx-auto text-center">
         {/* Title */}
         <motion.h2
-          className="text-5xl sm:text-6xl font-extrabold tracking-wide bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text"
+          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-wide bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text md:pb-4"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}

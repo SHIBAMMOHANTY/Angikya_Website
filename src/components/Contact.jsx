@@ -85,7 +85,7 @@ const Contact = () => {
 
   return (
     <div className="text-white min-h-screen flex flex-col items-center px-6 py-12 ">
-      <h2 className="text-5xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
         Submit Your Proposal
       </h2>
 

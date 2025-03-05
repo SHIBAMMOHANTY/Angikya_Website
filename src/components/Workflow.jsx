@@ -202,9 +202,9 @@ const TechStack = () => {
   const [hoveredTech, setHoveredTech] = useState(null);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen px-6">
       {/* Title */}
-      <div className="text-center pb-16">
+      <div className="text-center pb-8 md:pb-16">
         <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-8 tracking-wide font-extrabold text-dark">
           Tech
           <span className="bg-gradient-to-r from-blue-400 to-blue-700 text-transparent bg-clip-text"> Stack</span>
