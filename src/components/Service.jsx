@@ -14,7 +14,7 @@ const services = [
 
 const FeatureSection = () => {
   return (
-    <div className="relative md:mt-4 border-neutral-800 py-16 px-6 sm:px-12">
+    <div className="relative md:mt-6 lg:mt-12 xl:mt-16  border-neutral-800 py-16 px-6 sm:px-12">
       {/* Title */}
       <div className="text-center">
         <span className="bg-blue-600 text-white rounded-full text-sm font-medium px-4 py-1 uppercase shadow-lg">

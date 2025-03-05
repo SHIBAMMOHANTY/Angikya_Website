@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 
 export default function ContactUs() {
   return (
-    <div className="relative flex items-center justify-center min-h-[0px] p-4 bg-gradient-to-r from-pink-500 via-pink-400 to-pink-300 text-white rounded-lg shadow-md overflow-hidden">
+    <div className="relative flex items-center h-[2px] justify-end min-h-[0px] p-4 bg-gradient-to-r  bg-blue-400  text-white  shadow-md overflow-hidden">
       {/* Animated Twinkling Stars */}
       {[...Array(15)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-[4px] h-[4px] bg-white rounded-full opacity-70"
+          className="absolute w-[2px] h-[2px] bg-white rounded-full opacity-70"
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{
             opacity: [0.2, 1, 0.2],
@@ -28,10 +28,10 @@ export default function ContactUs() {
       ))}
 
       {/* Contact Information */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm sm:text-base">
-        <p className="font-semibold">📞 +91 98765 43210</p>
-        <p className="font-semibold">📧 contact@angikya.com</p>
-        <p className="font-semibold">🌐 www.angikya.com</p>
+      <div className="flex flex-col sm:flex-row items-center justify-end gap-4 text-sm sm:text-base">
+        <p className="font-medium">📞 +91 98765 43210</p>
+        <p className="font-medium">📧 connect@angikya.com</p>
+        <p className="font-medium">🌐 www.angikya.com</p>
       </div>
     </div>
   );

@@ -125,16 +125,16 @@ const techStack = [
       "4. Ideal for modern web applications."
     ]
   },
-  // { 
-  //   name: "OpenAI", 
-  //   icon: <SiOpenai className="text-gray-300 text-3xl sm:text-4xl" />, // Reduced icon size
-  //   description: [
-  //     "1. Provides AI models like GPT for natural language processing.",
-  //     "2. Enables text generation, translation, and summarization.",
-  //     "3. Used in chatbots, content creation, and more.",
-  //     "4. Powers cutting-edge AI applications."
-  //   ]
-  // },
+  { 
+    name: "OpenAI", 
+    icon: <SiOpenai className="text-gray-300 text-3xl sm:text-4xl" />, // Reduced icon size
+    description: [
+      "1. Provides AI models like GPT for natural language processing.",
+      "2. Enables text generation, translation, and summarization.",
+      "3. Used in chatbots, content creation, and more.",
+      "4. Powers cutting-edge AI applications."
+    ]
+  },
   { 
     name: "Python", 
     icon: <FaPython className="text-yellow-400 text-3xl sm:text-4xl" />, // Reduced icon size
@@ -187,7 +187,7 @@ const TechStack = () => {
   return (
     <div className="mt-1 lg:mt-6  mb-5 pb-10 text-center flex flex-col lg:flex-row items-center justify-center lg:items-stretch lg:space-x-10 w-full px-3 md:px-6 lg:px-12 xl:px-20">
       {/* Left Side - Grid */}
-      <div className="w-full lg:w-1/2 h-[500px] bg-neutral-900 rounded-xl shadow-lg p-4"> {/* Reduced padding */}
+      <div className="w-full lg:w-1/2 h-[450px] bg-neutral-900 rounded-xl shadow-lg p-4"> {/* Reduced padding */}
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 sm:gap-4"> {/* Reduced gap */}
           {techStack.map((tech, index) => (
             <motion.div
@@ -207,7 +207,7 @@ const TechStack = () => {
       </div>
 
       {/* Right Side - Tech Info */}
-      <div className="w-full lg:w-1/2 h-[500px] bg-neutral-800 rounded-lg shadow-lg p-6 mt-6 lg:mt-0">
+      <div className="w-full lg:w-1/2 h-[450px] bg-neutral-800 rounded-lg shadow-lg p-6 mt-6 lg:mt-0">
         <div className="flex flex-col justify-start h-full">
           <motion.h3 
             className="text-2xl sm:text-3xl font-bold text-blue-400 mb-4"

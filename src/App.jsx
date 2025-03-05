@@ -9,12 +9,13 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 // import OurClients from "./components/OurClients";
 import CareerPage from "./components/Careers";
+import Ads from "./components/Ads"
 
 
 const App = () => {
   return (
     <Router>
-      
+      <Ads/>
       <Navbar />
       <div className="  ">
         <Routes>

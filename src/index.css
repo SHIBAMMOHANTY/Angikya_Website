@@ -5,33 +5,33 @@
 @tailwind utilities;
 
 /* Apply the dark gradient background globally */
-/* :root {
+:root {
   font-family: "Poppins", sans-serif;
   background: linear-gradient(to right, #1a1a2e, #16213e, #0f3460);
   background-size: cover;
   color: #fff;
-} */
+}
 
 /* Ensure it applies to the entire page */
-/* body {
+body {
   background: linear-gradient(to right, #1a1a2e, #16213e, #0f3460);
   background-size: cover;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   color: #fff;
-} */
+}
 
-:root {
+/* :root {
   font-family: "Poppins", sans-serif;
   background: #F7F6F3;
   color: #333;
   position: relative;
   
-}
+} */
 
 /* Soft Blurred Gradient Overlay */
-:root::before {
+/* :root::before {
   content: "";
   position: absolute;
   top: 0;
@@ -42,6 +42,6 @@
   filter: blur(100px);
   opacity: 0.3;
   z-index: -1;
-}
+} */
 
 
