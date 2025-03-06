@@ -1,5 +1,5 @@
 import { FaLinkedin, FaTwitter, FaGithub, FaFacebook } from "react-icons/fa";
-import logo from "../assets/profile-pictures/angikya.png";
+import logo from "../assets/profile-pictures/angikya1.png";
 
 const Footer = () => {
   return (
@@ -7,12 +7,10 @@ const Footer = () => {
       <div className=" mx-auto px-6 gap-2 md:gap-8 flex flex-col md:flex-row justify-between ">
         {/* Left Column: Logo, Company Name, and Address */}
         <div className="text-center md:text-left flex flex-col items-center md:items-start space-y-2">
-          <h3 className="text-2xl font-bold text-white">ANGIKYA Technology</h3>
-          <img
-            className="w-20 h-20 md:w-26 md:h-26 object-contain"
-            src={logo}
-            alt="ANGIKYA Technology"
-          />
+          {/* <h3 className="text-2xl font-bold text-white">ANGIKYA Technology</h3> */}
+          <img className="md:h-9 md:w-30 h-8  mr-2 " src={logo}
+           alt="ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED"
+            />
           <p className="text-white text-sm md:text-base">
             5th Floor, Flat No-507, <br />
             Promod Heights, <br />
