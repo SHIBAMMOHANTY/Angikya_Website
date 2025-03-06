@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import Select from "react-select";
-import { countryCodes } from "./countryCodes"; // Import country codes with SVG flags
+import { countryCodes } from "../countryCodes"; // Import country codes with SVG flags
 
 const techOptions = [
   { value: "React.js", label: "React.js" },
@@ -186,9 +186,54 @@ const Contact = () => {
                 options={techOptions}
                 isMulti
                 classNamePrefix="react-select"
-                className="text-black"
                 onChange={handleTechStackChange}
                 placeholder="Select Technologies"
+                styles={{
+                  control: (provided) => ({
+                    ...provided,
+                    backgroundColor: "rgba(255, 255, 255, 0.2)", // bg-white/20
+                    color: "white", // text-white
+                    border: "none",
+                    borderRadius: "0.375rem", // rounded-md
+                  }),
+                  multiValue: (provided) => ({
+                    ...provided,
+                    backgroundColor: "rgba(255, 255, 255, 0.3)", // Slightly lighter background for selected tags
+                    color: "white", // Text color for selected tags
+                  }),
+                  multiValueLabel: (provided) => ({
+                    ...provided,
+                    color: "white", // Text color for selected tags
+                  }),
+                  multiValueRemove: (provided) => ({
+                    ...provided,
+                    color: "white", // Remove icon color
+                    ":hover": {
+                      backgroundColor: "rgba(255, 255, 255, 0.5)", // Hover background for remove icon
+                    },
+                  }),
+                  placeholder: (provided) => ({
+                    ...provided,
+                    color: "rgba(209, 213, 219, 0.7)", // placeholder-gray-300
+                  }),
+                  input: (provided) => ({
+                    ...provided,
+                    color: "white", // text-white
+                  }),
+                  menu: (provided) => ({
+                    ...provided,
+                    backgroundColor: "white", // bg-white
+                    color: "black", // text-black
+                  }),
+                  option: (provided, state) => ({
+                    ...provided,
+                    backgroundColor: state.isSelected ? "rgba(0, 0, 0, 0.1)" : "white", // Selected option background
+                    color: "black", // text-black
+                    "&:hover": {
+                      backgroundColor: "rgba(0, 0, 0, 0.1)", // Hover background
+                    },
+                  }),
+                }}
               />
               {form.techStack.includes("Other") && (
                 <input
@@ -196,7 +241,7 @@ const Contact = () => {
                   name="otherTech"
                   onChange={handleChange}
                   placeholder="Specify Other Technology"
-                  className="w-full mt-2 p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+                  className="w-full mt-2 p-2.5 rounded-md bg-white/20 text-white placeholder-gray-500 focus:ring focus:ring-blue-500 outline-none"
                 />
               )}
             </div>
@@ -207,9 +252,42 @@ const Contact = () => {
             <Select
               options={budgetOptions}
               classNamePrefix="react-select"
-              className="text-black"
               onChange={handleBudgetChange}
               placeholder="Select Budget"
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  backgroundColor: "rgba(255, 255, 255, 0.2)", // bg-white/20
+                  color: "white", // text-white
+                  border: "none",
+                  borderRadius: "0.375rem", // rounded-md
+                }),
+                singleValue: (provided) => ({
+                  ...provided,
+                  color: "white", // text-white
+                }),
+                placeholder: (provided) => ({
+                  ...provided,
+                  color: "rgba(209, 213, 219, 0.7)", // placeholder-gray-300
+                }),
+                input: (provided) => ({
+                  ...provided,
+                  color: "white", // text-white
+                }),
+                menu: (provided) => ({
+                  ...provided,
+                  backgroundColor: "white", // bg-white
+                  color: "black", // text-black
+                }),
+                option: (provided, state) => ({
+                  ...provided,
+                  backgroundColor: state.isSelected ? "rgba(0, 0, 0, 0.1)" : "white", // Selected option background
+                  color: "black", // text-black
+                  "&:hover": {
+                    backgroundColor: "rgba(0, 0, 0, 0.1)", // Hover background
+                  },
+                }),
+              }}
             />
             {form.budget === "custom" && (
               <input
@@ -244,7 +322,6 @@ const Contact = () => {
                 <Select
                   options={countryCodes}
                   classNamePrefix="react-select"
-                  className="w-1/3 text-black"
                   onChange={(selected) => setSelectedCountryCode(selected.value)}
                   value={countryCodes.find((code) => code.value === selectedCountryCode)}
                   formatOptionLabel={(option) => (
@@ -257,6 +334,40 @@ const Contact = () => {
                       {option.value}
                     </div>
                   )}
+                  styles={{
+                    control: (provided) => ({
+                      ...provided,
+                      backgroundColor: "rgba(255, 255, 255, 0.2)", // bg-white/20
+                      color: "white", // text-white
+                      border: "none",
+                      borderRadius: "0.375rem", // rounded-md
+                    }),
+                    singleValue: (provided) => ({
+                      ...provided,
+                      color: "white", // text-white
+                    }),
+                    placeholder: (provided) => ({
+                      ...provided,
+                      color: "rgba(209, 213, 219, 0.7)", // placeholder-gray-300
+                    }),
+                    input: (provided) => ({
+                      ...provided,
+                      color: "white", // text-white
+                    }),
+                    menu: (provided) => ({
+                      ...provided,
+                      backgroundColor: "white", // bg-white
+                      color: "black", // text-black
+                    }),
+                    option: (provided, state) => ({
+                      ...provided,
+                      backgroundColor: state.isSelected ? "rgba(0, 0, 0, 0.1)" : "white", // Selected option background
+                      color: "black", // text-black
+                      "&:hover": {
+                        backgroundColor: "rgba(0, 0, 0, 0.1)", // Hover background
+                      },
+                    }),
+                  }}
                 />
                 <input
                   type="text"
