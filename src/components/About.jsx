@@ -57,7 +57,7 @@ const AboutUs = () => {
   transition={{ duration: 1, delay: 0.4 }}
 >
   <a
-    href="/"
+    href="/Careers"
     className="px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg hover:scale-105 hover:text-blue-400 transition-all duration-300 ease-in-out"
   >
     Join Us

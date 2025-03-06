@@ -11,7 +11,7 @@ import Contact from "./components/Contact";
 import CareerPage from "./components/Careers";
 import Ads from "./components/Ads"
 import Whatsapp from "./components/Whatsapp";
-
+import Job from "./components/job"
 
 const App = () => {
   return (
@@ -39,6 +39,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/Careers" element={<CareerPage/>} />
+          <Route path="/job" element={<Job />} />
           <Route path="*" element={<h1 className="text-center text-3xl">404 - Page Not Found</h1>} />
         </Routes>
       </div>

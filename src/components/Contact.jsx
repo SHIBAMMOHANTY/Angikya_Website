@@ -317,7 +317,7 @@ const Contact = () => {
               </div>
             ))}
             <div className="relative">
-              <p className="text-white font-semibold mb-1">Mobile Number:</p>
+              {/* <p className="text-white font-semibold mb-1">Mobile Number:</p> */}
               <div className="flex items-center">
                 <Select
                   options={countryCodes}
@@ -373,7 +373,7 @@ const Contact = () => {
                   type="text"
                   name="mobile"
                   onChange={handleChange}
-                  placeholder="Enter 10-digit number"
+                  placeholder="Enter Mobile Number"
                   className="w-2/3 ml-2 p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
                   required
                 />

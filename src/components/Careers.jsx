@@ -5,7 +5,7 @@ const CareerPage = () => {
     {
       id: "BD201",
       title: "Backend Developer",
-      location: "Remote | Full-time",
+      location: "Bhubaneswar | Full-time",
       experience: "1-3 years",
       description: "Seeking a Node.js and MongoDB expert to build scalable applications.",
       link: "https://forms.gle/your-google-form-link"
@@ -13,7 +13,7 @@ const CareerPage = () => {
     {
       id: "UI302",
       title: "UI/UX Designer",
-      location: "Remote | Full-time",
+      location: "Bhubaneswar | Full-time",
       experience: "0-3 years",
       description: "Looking for a creative UI/UX designer to craft user-friendly experiences and wireframes.",
       link: "https://forms.gle/your-google-form-link"
@@ -21,7 +21,7 @@ const CareerPage = () => {
     {
       id: "FS703",
       title: "Full Stack Developer",
-      location: "Remote | Full-time",
+      location: "Bhubaneswar | Full-time",
       experience: "1-2 years",
       description: "Seeking a Full Stack Developer with experience in React, Node.js, and MongoDB.",
       link: "https://forms.gle/your-google-form-link"
@@ -29,7 +29,7 @@ const CareerPage = () => {
     {
       id: "FL804",
       title: "Flutter Developer",
-      location: "Remote | Full-time",
+      location: "Bhubaneswar | Full-time",
       experience: "1-3 years",
       description: "Looking for a Flutter Developer to build cross-platform mobile applications.",
       link: "https://forms.gle/your-google-form-link"
@@ -87,7 +87,7 @@ const CareerPage = () => {
           <option value="">All Locations</option>
           <option value="Remote">Remote</option>
           <option value="Hybrid">Hybrid</option>
-          <option value="On-site">On-site</option>
+          <option value="Bhubaneswar">Bhubaneswar</option>
         </select>
       </div>
 
@@ -101,10 +101,11 @@ const CareerPage = () => {
             <button 
               className="mt-4 text-blue-400 hover:underline focus:outline-none"
               onClick={() => alert(job.description)}>
-              Read More
+              
             </button>
             <a 
-              href={job.link} 
+              // href={job.link} 
+              href='/job'
               target="_blank" 
               rel="noopener noreferrer"
               className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition block text-center font-medium">
