@@ -84,13 +84,8 @@ const Contact = () => {
   };
 
   return (
-<<<<<<< Updated upstream
-    <div className="text-white min-h-screen flex flex-col items-center px-6 py-12 ">
-      <h2 className="text-5xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-=======
     <div className="text-white min-h-screen flex flex-col items-center px-4 py-8 bg-gradient-to-r from-[#1a1a2e] via-[#16213e] to-[#0f3460]">
       <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
->>>>>>> Stashed changes
         Submit Your Proposal
       </h2>
 
@@ -101,16 +96,28 @@ const Contact = () => {
         className="w-full max-w-4xl bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-xl shadow-xl border border-white/20"
       >
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="w-full md:w-1/2">
+            <p className="text-white font-semibold mb-1 ">What do you want to build?</p>
               <select
                 name="projectType"
                 onChange={handleChange}
-                className="w-full p-2.5 rounded-md bg-white/20 text-white focus:ring focus:ring-blue-500 outline-none"
+                className="w-full p-2 rounded-md bg-white/20 text-white focus:ring focus:ring-blue-500 outline-none"
                 required
               >
                 <option value="">What do you want to build?</option>
-                {["Static Website", "Dynamic Website", "Portfolio", "Blogs", "Mobile App", "Desktop App", "Custom Software", "Chat Bot", "Chrome Extension", "Other"].map((option) => (
+                {[
+                  "Static Website",
+                  "Dynamic Website",
+                  "Portfolio",
+                  "Blogs",
+                  "Mobile App",
+                  "Desktop App",
+                  "Custom Software",
+                  "Chat Bot",
+                  "Chrome Extension",
+                  "Other",
+                ].map((option) => (
                   <option key={option} value={option} className="text-black">
                     {option}
                   </option>
@@ -118,7 +125,7 @@ const Contact = () => {
               </select>
             </div>
 
-            <div>
+            <div className="w-full md:w-1/2">
               <p className="text-white font-semibold mb-1">Preferred Tech Stack:</p>
               <Select
                 options={techOptions}
@@ -138,15 +145,17 @@ const Contact = () => {
                 />
               )}
             </div>
+          </div>
 
-            <input
-              type="text"
-              name="budget"
-              onChange={handleChange}
-              placeholder="Budget (in INR)"
-              className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
-            />
+          <input
+            type="text"
+            name="budget"
+            onChange={handleChange}
+            placeholder="Budget (in INR)"
+            className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+          />
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {["name", "email", "company", "mobile"].map((field) => (
               <input
                 key={field}
