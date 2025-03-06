@@ -1,6 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import logo from "../assets/profile-pictures/angikya.png";
+import logo from "../assets/profile-pictures/angikya1.png";
 import { navItems } from "../constants";
 
 const Navbar = () => {
@@ -12,11 +12,11 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 py-3 bg-gradient-to-r from-gray-900 via-gray-800 to-black border-b border-neutral-700/80">
-      <div className="container px-4 xl:px-16 mx-auto relative lg:text-sm">
+      <div className="container px-4 xl:px-12 mx-auto relative lg:text-sm">
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
-            <img className="h-10 w-10 mr-2" src={logo} alt="Logo" />
-            <span className="md:text-xl text-[.5rem] tracking-tight font-bold text-white">ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED </span>
+            <img className="md:h-9 md:w-30 h-6  mr-2 " src={logo} alt="ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED" />
+            {/* <span className="md:text-xl text-[.5rem] tracking-tight font-bold text-white">ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED </span> */}
           </div>
           <ul className="hidden lg:flex ml-14 space-x-12 text-white">
             {navItems.map((item, index) => (

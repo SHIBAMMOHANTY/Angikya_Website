@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import Select from "react-select";
+import { countryCodes } from "./countryCodes"; // Import country codes with SVG flags
 
 const techOptions = [
   { value: "React.js", label: "React.js" },
@@ -16,12 +17,21 @@ const techOptions = [
   { value: "Other", label: "Other" },
 ];
 
+const budgetOptions = [
+  { value: "10k-50k", label: "₹10,000 - ₹50,000" },
+  { value: "50k-1L", label: "₹50,000 - ₹1,00,000" },
+  { value: "1L-5L", label: "₹1,00,000 - ₹5,00,000" },
+  { value: "5L+", label: "₹5,00,000+" },
+  { value: "custom", label: "Custom Budget" },
+];
+
 const Contact = () => {
   const [form, setForm] = useState({
     projectType: "",
     techStack: [],
     otherTech: "",
     budget: "",
+    customBudget: "",
     name: "",
     email: "",
     company: "",
@@ -31,11 +41,27 @@ const Contact = () => {
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [selectedCountryCode, setSelectedCountryCode] = useState("+91"); // Default to India
+  const [errors, setErrors] = useState({});
   const formRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
+
+    // Validate fields in real-time
+    if (name === "mobile") {
+      setErrors({
+        ...errors,
+        mobile: value.length !== 10 ? "Phone number must be 10 digits." : "",
+      });
+    }
+    if (name === "email") {
+      setErrors({
+        ...errors,
+        email: !value.includes("@") ? "Email must contain '@'." : "",
+      });
+    }
   };
 
   const handleTechStackChange = (selectedOptions) => {
@@ -47,12 +73,40 @@ const Contact = () => {
     });
   };
 
+  const handleBudgetChange = (selectedOption) => {
+    if (selectedOption.value === "custom") {
+      setForm({ ...form, budget: "custom", customBudget: "" });
+    } else {
+      setForm({ ...form, budget: selectedOption.value, customBudget: "" });
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (form.mobile.length !== 10) {
+      newErrors.mobile = "Phone number must be 10 digits.";
+    }
+    if (!form.email.includes("@")) {
+      newErrors.email = "Email must contain '@'.";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
     setLoading(true);
 
+    const finalForm = {
+      ...form,
+      budget: form.budget === "custom" ? form.customBudget : form.budget,
+    };
+
     emailjs
-      .send("service_w0mr93k", "template_qwecn9n", form, "khTulBgT8kM_O_R84")
+      .send("service_w0mr93k", "template_qwecn9n", finalForm, "khTulBgT8kM_O_R84")
       .then(
         () => {
           setLoading(false);
@@ -65,6 +119,7 @@ const Contact = () => {
             techStack: [],
             otherTech: "",
             budget: "",
+            customBudget: "",
             name: "",
             email: "",
             company: "",
@@ -98,7 +153,7 @@ const Contact = () => {
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="w-full md:w-1/2">
-            <p className="text-white font-semibold mb-1 ">What do you want to build?</p>
+              <p className="text-white font-semibold mb-1">What do you want to build?</p>
               <select
                 name="projectType"
                 onChange={handleChange}
@@ -147,26 +202,75 @@ const Contact = () => {
             </div>
           </div>
 
-          <input
-            type="text"
-            name="budget"
-            onChange={handleChange}
-            placeholder="Budget (in INR)"
-            className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
-          />
+          <div className="w-full">
+            <p className="text-white font-semibold mb-1">Budget:</p>
+            <Select
+              options={budgetOptions}
+              classNamePrefix="react-select"
+              className="text-black"
+              onChange={handleBudgetChange}
+              placeholder="Select Budget"
+            />
+            {form.budget === "custom" && (
+              <input
+                type="text"
+                name="customBudget"
+                onChange={handleChange}
+                placeholder="Enter Custom Budget (in INR)"
+                className="w-full mt-2 p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+              />
+            )}
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["name", "email", "company", "mobile"].map((field) => (
-              <input
-                key={field}
-                type={field === "email" ? "email" : "text"}
-                name={field}
-                onChange={handleChange}
-                placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
-                required={field === "name" || field === "email" || field === "mobile"}
-              />
+            {["name", "email", "company"].map((field) => (
+              <div key={field}>
+                <input
+                  type={field === "email" ? "email" : "text"}
+                  name={field}
+                  onChange={handleChange}
+                  placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+                  className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+                  required={field === "name" || field === "email"}
+                />
+                {errors[field] && (
+                  <p className="text-red-500 text-sm mt-1">{errors[field]}</p>
+                )}
+              </div>
             ))}
+            <div className="relative">
+              <p className="text-white font-semibold mb-1">Mobile Number:</p>
+              <div className="flex items-center">
+                <Select
+                  options={countryCodes}
+                  classNamePrefix="react-select"
+                  className="w-1/3 text-black"
+                  onChange={(selected) => setSelectedCountryCode(selected.value)}
+                  value={countryCodes.find((code) => code.value === selectedCountryCode)}
+                  formatOptionLabel={(option) => (
+                    <div className="flex items-center">
+                      <img
+                        src={option.flag}
+                        alt={option.label}
+                        className="w-4 h-4 mr-2"
+                      />
+                      {option.value}
+                    </div>
+                  )}
+                />
+                <input
+                  type="text"
+                  name="mobile"
+                  onChange={handleChange}
+                  placeholder="Enter 10-digit number"
+                  className="w-2/3 ml-2 p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+                  required
+                />
+              </div>
+              {errors.mobile && (
+                <p className="text-red-500 text-sm mt-1">{errors.mobile}</p>
+              )}
+            </div>
           </div>
 
           <textarea
