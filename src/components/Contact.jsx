@@ -324,65 +324,72 @@ const Contact = () => {
               </div>
             ))}
             <div className="relative">
-              <div className="flex items-center">
-                <Select
-                  options={countryCodes}
-                  classNamePrefix="react-select"
-                  onChange={(selected) => setSelectedCountryCode(selected.value)}
-                  value={countryCodes.find((code) => code.value === selectedCountryCode)}
-                  formatOptionLabel={(option) => (
-                    <div className="flex items-center">
-                      <img
-                        src={option.flag}
-                        alt={option.label}
-                        className="w-4 h-4 mr-2"
-                      />
-                      {option.value}
-                    </div>
-                  )}
-                  styles={{
-                    control: (provided) => ({
-                      ...provided,
-                      backgroundColor: "rgba(255, 255, 255, 0.2)", // bg-white/20
-                      color: "white", // text-white
-                      border: "none",
-                      borderRadius: "0.375rem", // rounded-md
-                    }),
-                    singleValue: (provided) => ({
-                      ...provided,
-                      color: "white", // text-white
-                    }),
-                    placeholder: (provided) => ({
-                      ...provided,
-                      color: "rgba(209, 213, 219, 0.7)", // placeholder-gray-300
-                    }),
-                    input: (provided) => ({
-                      ...provided,
-                      color: "white", // text-white
-                    }),
-                    menu: (provided) => ({
-                      ...provided,
-                      backgroundColor: "white", // bg-white
-                      color: "black", // text-black
-                    }),
-                    option: (provided, state) => ({
-                      ...provided,
-                      backgroundColor: state.isSelected ? "rgba(0, 0, 0, 0.1)" : "white", // Selected option background
-                      color: "black", // text-black
-                      "&:hover": {
-                        backgroundColor: "rgba(0, 0, 0, 0.1)", // Hover background
-                      },
-                    }),
-                  }}
-                />
-                <input
-                  type="text"
-                  name="mobile"
-                  onChange={handleChange}
-                  placeholder="Enter Mobile Number"
-                  className="w-2/3 ml-2 p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
-                  required
-                />
+              <div className="flex flex-col md:flex-row items-center gap-2 w-full">
+                {/* Country Code Dropdown */}
+                <div className="w-full md:w-1/3">
+                  <Select
+                    options={countryCodes}
+                    classNamePrefix="react-select"
+                    onChange={(selected) => setSelectedCountryCode(selected.value)}
+                    value={countryCodes.find((code) => code.value === selectedCountryCode)}
+                    formatOptionLabel={(option) => (
+                      <div className="flex items-center">
+                        <img
+                          src={option.flag}
+                          alt={option.label}
+                          className="w-4 h-4 mr-2"
+                        />
+                        {option.value}
+                      </div>
+                    )}
+                    styles={{
+                      control: (provided) => ({
+                        ...provided,
+                        backgroundColor: "rgba(255, 255, 255, 0.2)", // bg-white/20
+                        color: "white", // text-white
+                        border: "none",
+                        borderRadius: "0.375rem", // rounded-md
+                      }),
+                      singleValue: (provided) => ({
+                        ...provided,
+                        color: "white", // text-white
+                      }),
+                      placeholder: (provided) => ({
+                        ...provided,
+                        color: "rgba(209, 213, 219, 0.7)", // placeholder-gray-300
+                      }),
+                      input: (provided) => ({
+                        ...provided,
+                        color: "white", // text-white
+                      }),
+                      menu: (provided) => ({
+                        ...provided,
+                        backgroundColor: "white", // bg-white
+                        color: "black", // text-black
+                      }),
+                      option: (provided, state) => ({
+                        ...provided,
+                        backgroundColor: state.isSelected ? "rgba(0, 0, 0, 0.1)" : "white", // Selected option background
+                        color: "black", // text-black
+                        "&:hover": {
+                          backgroundColor: "rgba(0, 0, 0, 0.1)", // Hover background
+                        },
+                      }),
+                    }}
+                  />
+                </div>
+
+                {/* Mobile Number Input */}
+                <div className="w-full md:w-2/3">
+                  <input
+                    type="text"
+                    name="mobile"
+                    onChange={handleChange}
+                    placeholder="Enter Mobile Number"
+                    className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+                    required
+                  />
+                </div>
               </div>
               {errors.mobile && (
                 <p className="text-red-500 text-sm mt-1">{errors.mobile}</p>
