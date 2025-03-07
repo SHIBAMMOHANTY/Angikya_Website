@@ -44,7 +44,7 @@ const HeroSection = () => {
 
         <div className="mt-6 flex justify-center lg:justify-start gap-4">
           <button className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
-            <a href="/" className="hover:text-blue-600 transition-all duration-300">
+            <a href="/Careers" className="hover:text-blue-600 transition-all duration-300">
               Join Team
             </a>
           </button>

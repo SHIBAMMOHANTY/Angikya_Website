@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="container px-4 xl:px-12 mx-auto relative lg:text-sm">
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
-            <img className="md:h-9 md:w-30 h-6  mr-2 " src={logo} alt="ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED" />
+            <a href="/"><img className="md:h-9 md:w-30 h-6  mr-2 " src={logo} alt="ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED" /></a>
             {/* <span className="md:text-xl text-[.5rem] tracking-tight font-bold text-white">ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED </span> */}
           </div>
           <ul className="hidden lg:flex ml-14 space-x-12 text-white">

@@ -8,9 +8,9 @@ const Footer = () => {
         {/* Left Column: Logo, Company Name, and Address */}
         <div className="text-center md:text-left flex flex-col items-center md:items-start space-y-2">
           {/* <h3 className="text-2xl font-bold text-white">ANGIKYA Technology</h3> */}
-          <img className="md:h-9 md:w-30 h-8  mr-2 " src={logo}
+          <a href="/"> <img className="md:h-9 md:w-30 h-8  mr-2 " src={logo}
            alt="ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED"
-            />
+            /></a>
           <p className="text-white text-sm md:text-base">
             5th Floor, Flat No-507, <br />
             Promod Heights, <br />

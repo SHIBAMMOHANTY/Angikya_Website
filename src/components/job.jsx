@@ -428,7 +428,7 @@ const JobApplicationForm = () => {
             name="coverLetter"
             value={form.coverLetter}
             onChange={handleChange}
-            placeholder="Cover Letter"
+            placeholder="Cover Letter With Resume Link"
             rows="4"
             className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
             required
