@@ -38,7 +38,7 @@ export default function ContactUs() {
           className="font-medium tracking-wide flex items-center gap-2"
           whileHover={{ scale: 1.1 }}
         >
-          📞 +91 98765 43210
+          📞 +91 97776-68069
         </motion.p>
         <motion.p
           className="font-medium tracking-wide flex items-center gap-2"

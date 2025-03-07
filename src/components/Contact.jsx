@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
+import emailjs from "@emailjs/browser"; // Import EmailJS
 import Select from "react-select";
 import { countryCodes } from "../countryCodes"; // Import country codes with SVG flags
 
@@ -105,8 +105,14 @@ const Contact = () => {
       budget: form.budget === "custom" ? form.customBudget : form.budget,
     };
 
+    // Send form data using EmailJS
     emailjs
-      .send("service_w0mr93k", "template_qwecn9n", finalForm, "khTulBgT8kM_O_R84")
+      .send(
+        "service_3na0f5j", // Replace with your EmailJS service ID
+        "template_ywdfmca", // Replace with your EmailJS template ID
+        finalForm,
+        "khTulBgT8kM_O_R84" // Replace with your EmailJS public key
+      )
       .then(
         () => {
           setLoading(false);
@@ -128,12 +134,13 @@ const Contact = () => {
             message: "",
           });
 
-          setTimeout(() => setSuccess(false), 3000);
+          setTimeout(() => setSuccess(false), 3000); // Reset success message after 3 seconds
         },
         (err) => {
-          console.error("FAILED...", err);
+          console.error("Failed to send email:", err);
           setLoading(false);
           setSuccess(false);
+          alert("Oops! Something went wrong. Please try again.");
         }
       );
   };
@@ -317,7 +324,6 @@ const Contact = () => {
               </div>
             ))}
             <div className="relative">
-              {/* <p className="text-white font-semibold mb-1">Mobile Number:</p> */}
               <div className="flex items-center">
                 <Select
                   options={countryCodes}

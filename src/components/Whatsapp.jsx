@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Whatsapp = () => {
   const handleClick = () => {
-    window.open('https://wa.me/9319489404', '_blank'); // Replace with your number
+    window.open('https://wa.me/9777668069', '_blank'); // Replace with your number
   };
 
   return (

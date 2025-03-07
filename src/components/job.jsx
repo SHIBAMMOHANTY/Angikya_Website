@@ -9,12 +9,30 @@ const countryCodes = [
   // Add more country codes as needed
 ];
 
+const jobRoles = [
+  { value: "Software Engineer", label: "Software Engineer" },
+  { value: "Frontend Developer", label: "Frontend Developer" },
+  { value: "Backend Developer", label: "Backend Developer" },
+  { value: "Full Stack Developer", label: "Full Stack Developer" },
+  { value: "DevOps Engineer", label: "DevOps Engineer" },
+  { value: "Data Scientist", label: "Data Scientist" },
+  { value: "UI/UX Designer", label: "UI/UX Designer" },
+  { value: "Product Manager", label: "Product Manager" },
+  { value: "Other", label: "Other" },
+];
+
 const JobApplicationForm = () => {
   const [form, setForm] = useState({
     fullName: "",
     email: "",
     phone: "",
     countryCode: "+91",
+    jobRole: "",
+    jobId: "",
+    address: "",
+    city: "",
+    state: "",
+    zipCode: "",
     resume: null,
     coverLetter: "",
   });
@@ -39,10 +57,20 @@ const JobApplicationForm = () => {
         email: !value.includes("@") ? "Email must contain '@'." : "",
       });
     }
+    if (name === "zipCode") {
+      setErrors({
+        ...errors,
+        zipCode: value.length !== 6 ? "Zip code must be 6 digits." : "",
+      });
+    }
   };
 
   const handleFileChange = (e) => {
     setForm({ ...form, resume: e.target.files[0] });
+  };
+
+  const handleJobRoleChange = (selectedOption) => {
+    setForm({ ...form, jobRole: selectedOption.value });
   };
 
   const handleSubmit = (e) => {
@@ -57,16 +85,22 @@ const JobApplicationForm = () => {
       fullName: form.fullName,
       email: form.email,
       phone: form.countryCode + form.phone,
+      jobRole: form.jobRole,
+      jobId: form.jobId,
+      address: form.address,
+      city: form.city,
+      state: form.state,
+      zipCode: form.zipCode,
       coverLetter: form.coverLetter,
     };
 
     // Send the email using EmailJS
     emailjs
       .send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS Service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS Template ID
+        "service_3na0f5j", // Replace with your EmailJS Service ID
+        "template_qwecn9n", // Replace with your EmailJS Template ID
         templateParams,
-        "YOUR_USER_ID" // Replace with your EmailJS User ID
+        "khTulBgT8kM_O_R84" // Replace with your EmailJS User ID
       )
       .then(
         () => {
@@ -77,6 +111,12 @@ const JobApplicationForm = () => {
             email: "",
             phone: "",
             countryCode: "+91",
+            jobRole: "",
+            jobId: "",
+            address: "",
+            city: "",
+            state: "",
+            zipCode: "",
             resume: null,
             coverLetter: "",
           });
@@ -92,11 +132,38 @@ const JobApplicationForm = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (form.phone.length !== 10) {
-      newErrors.phone = "Phone number must be 10 digits.";
+    if (form.fullName.trim() === "") {
+      newErrors.fullName = "Full Name is required.";
     }
     if (!form.email.includes("@")) {
       newErrors.email = "Email must contain '@'.";
+    }
+    if (form.phone.length !== 10) {
+      newErrors.phone = "Phone number must be 10 digits.";
+    }
+    if (form.jobRole === "") {
+      newErrors.jobRole = "Job Role is required.";
+    }
+    if (form.jobId.trim() === "") {
+      newErrors.jobId = "Job ID is required.";
+    }
+    if (form.address.trim() === "") {
+      newErrors.address = "Address is required.";
+    }
+    if (form.city.trim() === "") {
+      newErrors.city = "City is required.";
+    }
+    if (form.state.trim() === "") {
+      newErrors.state = "State is required.";
+    }
+    if (form.zipCode.length !== 6) {
+      newErrors.zipCode = "Zip code must be 6 digits.";
+    }
+    if (!form.resume) {
+      newErrors.resume = "Resume is required.";
+    }
+    if (form.coverLetter.trim() === "") {
+      newErrors.coverLetter = "Cover Letter is required.";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -123,6 +190,9 @@ const JobApplicationForm = () => {
                 className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
                 required
               />
+              {errors.fullName && (
+                <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
+              )}
             </div>
 
             {/* Email */}
@@ -211,6 +281,133 @@ const JobApplicationForm = () => {
               <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
             )}
 
+            {/* Job Role */}
+            <div>
+              <Select
+                options={jobRoles}
+                classNamePrefix="react-select"
+                onChange={handleJobRoleChange}
+                placeholder="Select Job Role"
+                styles={{
+                  control: (provided) => ({
+                    ...provided,
+                    backgroundColor: "rgba(255, 255, 255, 0.2)",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "0.375rem",
+                  }),
+                  singleValue: (provided) => ({
+                    ...provided,
+                    color: "white",
+                  }),
+                  placeholder: (provided) => ({
+                    ...provided,
+                    color: "rgba(209, 213, 219, 0.7)",
+                  }),
+                  input: (provided) => ({
+                    ...provided,
+                    color: "white",
+                  }),
+                  menu: (provided) => ({
+                    ...provided,
+                    backgroundColor: "white",
+                    color: "black",
+                  }),
+                  option: (provided, state) => ({
+                    ...provided,
+                    backgroundColor: state.isSelected ? "rgba(0, 0, 0, 0.1)" : "white",
+                    color: "black",
+                    "&:hover": {
+                      backgroundColor: "rgba(0, 0, 0, 0.1)",
+                    },
+                  }),
+                }}
+              />
+              {errors.jobRole && (
+                <p className="text-red-500 text-sm mt-1">{errors.jobRole}</p>
+              )}
+            </div>
+
+            {/* Job ID */}
+            <div>
+              <input
+                type="text"
+                name="jobId"
+                value={form.jobId}
+                onChange={handleChange}
+                placeholder="Job ID"
+                className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+                required
+              />
+              {errors.jobId && (
+                <p className="text-red-500 text-sm mt-1">{errors.jobId}</p>
+              )}
+            </div>
+
+            {/* Address */}
+            <div>
+              <input
+                type="text"
+                name="address"
+                value={form.address}
+                onChange={handleChange}
+                placeholder="Address"
+                className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+                required
+              />
+              {errors.address && (
+                <p className="text-red-500 text-sm mt-1">{errors.address}</p>
+              )}
+            </div>
+
+            {/* City */}
+            <div>
+              <input
+                type="text"
+                name="city"
+                value={form.city}
+                onChange={handleChange}
+                placeholder="City"
+                className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+                required
+              />
+              {errors.city && (
+                <p className="text-red-500 text-sm mt-1">{errors.city}</p>
+              )}
+            </div>
+
+            {/* State */}
+            <div>
+              <input
+                type="text"
+                name="state"
+                value={form.state}
+                onChange={handleChange}
+                placeholder="State"
+                className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+                required
+              />
+              {errors.state && (
+                <p className="text-red-500 text-sm mt-1">{errors.state}</p>
+              )}
+            </div>
+
+            {/* Zip Code */}
+            <div>
+              <input
+                type="text"
+                name="zipCode"
+                value={form.zipCode}
+                onChange={handleChange}
+                placeholder="Zip Code"
+                className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+                required
+              />
+              {errors.zipCode && (
+                <p className="text-red-500 text-sm mt-1">{errors.zipCode}</p>
+              )}
+            </div>
+
             {/* Resume Upload */}
             <div>
               <input
@@ -220,6 +417,9 @@ const JobApplicationForm = () => {
                 className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
                 required
               />
+              {errors.resume && (
+                <p className="text-red-500 text-sm mt-1">{errors.resume}</p>
+              )}
             </div>
           </div>
 
@@ -233,6 +433,9 @@ const JobApplicationForm = () => {
             className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
             required
           ></textarea>
+          {errors.coverLetter && (
+            <p className="text-red-500 text-sm mt-1">{errors.coverLetter}</p>
+          )}
 
           {/* Submit Button */}
           <button
