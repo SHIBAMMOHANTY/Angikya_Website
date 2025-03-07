@@ -410,13 +410,28 @@ const JobApplicationForm = () => {
 
             {/* Resume Upload */}
             <div>
+              {/* Hidden File Input */}
               <input
                 type="file"
                 name="resume"
+                id="resume"
                 onChange={handleFileChange}
-                className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none"
+                className="hidden" // Hide the default file input
                 required
               />
+
+              {/* Custom File Input Label */}
+              <label
+                htmlFor="resume"
+                className="w-full p-2.5 rounded-md bg-white/20 text-white placeholder-gray-300 focus:ring focus:ring-blue-500 outline-none cursor-pointer flex items-center justify-between"
+              >
+                <span className="text-gray-300">
+                  {form.resume ? form.resume.name : "Upload your resume"}
+                </span>
+                <span className="text-blue-500">Browse</span>
+              </label>
+
+              {/* Error Message */}
               {errors.resume && (
                 <p className="text-red-500 text-sm mt-1">{errors.resume}</p>
               )}
