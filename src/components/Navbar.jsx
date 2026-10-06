@@ -15,8 +15,9 @@ const Navbar = () => {
       <div className="container px-4 xl:px-12 mx-auto relative lg:text-sm">
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
-            <a href="/"><img className="md:h-9 md:w-30 h-6  mr-2 " src={logo} alt="ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED" /></a>
-            {/* <span className="md:text-xl text-[.5rem] tracking-tight font-bold text-white">ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED </span> */}
+            <a href="/" className="flex items-center">
+              <img className="h-8 md:h-10 w-auto object-contain mr-2" src={logo} alt="ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED" />
+            </a>
           </div>
           <ul className="hidden lg:flex ml-14 space-x-12 text-white">
             {navItems.map((item, index) => (

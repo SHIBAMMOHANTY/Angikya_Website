@@ -8,15 +8,30 @@ const Footer = () => {
         {/* Left Column: Logo, Company Name, and Address */}
         <div className="text-center md:text-left flex flex-col items-center md:items-start space-y-2">
           {/* <h3 className="text-2xl font-bold text-white">ANGIKYA Technology</h3> */}
-          <a href="/"> <img className="md:h-9 md:w-30 h-8  mr-2 " src={logo}
-           alt="ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED"
-            /></a>
+          <a href="/" className="flex items-center">
+            <img className="h-8 md:h-10 w-auto object-contain mr-2" src={logo}
+              alt="ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED"
+            />
+          </a>
           <p className="text-white text-sm md:text-base">
             5th Floor, Flat No-507, <br />
             Promod Heights, <br />
             Bhubaneswar, Odisha
-            <br /> 
           </p>
+          <div className="pt-2 space-y-1 text-sm text-gray-200">
+            <p className="flex items-center gap-2">
+              <span>📞</span>
+              <a href="tel:+919777684484" className="hover:text-blue-400 transition-colors">
+                +91 97776 84484
+              </a>
+            </p>
+            <p className="flex items-center gap-2">
+              <span>📧</span>
+              <a href="mailto:connect@angikya.com" className="hover:text-blue-400 transition-colors">
+                connect@angikya.com
+              </a>
+            </p>
+          </div>
         </div>
 
 

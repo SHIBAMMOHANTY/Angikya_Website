@@ -34,24 +34,29 @@ export default function ContactUs() {
         transition={{ duration: 1 }}
         className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-3 text-sm sm:text-base"
       >
-        <motion.p
-          className="font-medium tracking-wide flex items-center gap-2"
-          whileHover={{ scale: 1.1 }}
+        <motion.a
+          href="tel:+919777684484"
+          className="font-medium tracking-wide flex items-center gap-2 hover:underline cursor-pointer"
+          whileHover={{ scale: 1.05 }}
         >
-          📞 +91 97776-68069
-        </motion.p>
-        <motion.p
-          className="font-medium tracking-wide flex items-center gap-2"
-          whileHover={{ scale: 1.1 }}
+          📞 +91 97776 84484
+        </motion.a>
+        <motion.a
+          href="mailto:connect@angikya.com"
+          className="font-medium tracking-wide flex items-center gap-2 hover:underline cursor-pointer"
+          whileHover={{ scale: 1.05 }}
         >
           📧 connect@angikya.com
-        </motion.p>
-        <motion.p
-          className="font-medium tracking-wide flex items-center gap-2"
-          whileHover={{ scale: 1.1 }}
+        </motion.a>
+        <motion.a
+          href="https://www.angikya.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium tracking-wide flex items-center gap-2 hover:underline cursor-pointer"
+          whileHover={{ scale: 1.05 }}
         >
           🌐 www.angikya.com
-        </motion.p>
+        </motion.a>
       </motion.div>
     </div>
   );

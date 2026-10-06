@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser"; // Import EmailJS
 import Select from "react-select";
 import { countryCodes } from "../countryCodes"; // Import country codes with SVG flags
+import { PhoneCall, Mail, MessageCircle } from "lucide-react";
 
 const techOptions = [
   { value: "React.js", label: "React.js" },
@@ -147,9 +148,60 @@ const Contact = () => {
 
   return (
     <div className="text-white min-h-screen flex flex-col items-center px-4 py-8 bg-gradient-to-r from-[#1a1a2e] via-[#16213e] to-[#0f3460]">
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-        Submit Your Proposal
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+        Get In Touch
       </h2>
+      <p className="text-gray-300 text-center max-w-xl mb-8">
+        Have a project in mind or need assistance? Reach out to us directly or submit your proposal below.
+      </p>
+
+      {/* Direct Contact Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl mb-8">
+        <a
+          href="tel:+919777684484"
+          className="flex items-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:border-blue-400/50 hover:bg-white/15 transition-all group"
+        >
+          <div className="p-3 rounded-lg bg-blue-500/20 text-blue-400 group-hover:scale-110 transition-transform">
+            <PhoneCall className="w-6 h-6" />
+          </div>
+          <div>
+            <p className="text-xs text-gray-400">Call Us</p>
+            <p className="text-sm font-semibold text-white group-hover:text-blue-300 transition-colors">+91 97776 84484</p>
+          </div>
+        </a>
+
+        <a
+          href="https://wa.me/919777684484"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:border-green-400/50 hover:bg-white/15 transition-all group"
+        >
+          <div className="p-3 rounded-lg bg-green-500/20 text-green-400 group-hover:scale-110 transition-transform">
+            <MessageCircle className="w-6 h-6" />
+          </div>
+          <div>
+            <p className="text-xs text-gray-400">WhatsApp</p>
+            <p className="text-sm font-semibold text-white group-hover:text-green-300 transition-colors">+91 97776 84484</p>
+          </div>
+        </a>
+
+        <a
+          href="mailto:connect@angikya.com"
+          className="flex items-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:border-purple-400/50 hover:bg-white/15 transition-all group"
+        >
+          <div className="p-3 rounded-lg bg-purple-500/20 text-purple-400 group-hover:scale-110 transition-transform">
+            <Mail className="w-6 h-6" />
+          </div>
+          <div>
+            <p className="text-xs text-gray-400">Email Us</p>
+            <p className="text-sm font-semibold text-white group-hover:text-purple-300 transition-colors">connect@angikya.com</p>
+          </div>
+        </a>
+      </div>
+
+      <h3 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-white">
+        Submit Your Proposal
+      </h3>
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
