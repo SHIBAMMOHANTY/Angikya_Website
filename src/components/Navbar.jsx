@@ -33,11 +33,13 @@ const Navbar = () => {
         setHasScrolled(scrolled);
       }
 
+      const isMobile = window.innerWidth < 768;
+
       if (scrolled) {
         // Scrolled → transparent blurry frosted white glass pill
         gsap.to(nav, {
-          paddingTop: "0.75rem",
-          paddingBottom: "0.75rem",
+          paddingTop: isMobile ? "0.5rem" : "0.75rem",
+          paddingBottom: isMobile ? "0.5rem" : "0.75rem",
           duration: 0.4,
           ease: "power3.out",
         });
@@ -47,13 +49,13 @@ const Navbar = () => {
         inner.style.webkitBackdropFilter = "blur(20px) saturate(180%)";
 
         gsap.to(inner, {
-          width: "75%",
+          width: isMobile ? "92%" : "75%",
           maxWidth: "960px",
           borderRadius: "9999px",
           paddingTop: "0.5rem",
           paddingBottom: "0.5rem",
-          paddingLeft: "1.75rem",
-          paddingRight: "1.75rem",
+          paddingLeft: isMobile ? "1rem" : "1.75rem",
+          paddingRight: isMobile ? "1rem" : "1.75rem",
           backgroundColor: "rgba(255, 255, 255, 0.7)",
           borderColor: "rgba(226, 232, 240, 0.9)",
           boxShadow:
@@ -64,8 +66,8 @@ const Navbar = () => {
       } else {
         // Top → 100% full width, completely transparent, no blur anywhere
         gsap.to(nav, {
-          paddingTop: "1.25rem",
-          paddingBottom: "1.25rem",
+          paddingTop: isMobile ? "0.75rem" : "1.25rem",
+          paddingBottom: isMobile ? "0.75rem" : "1.25rem",
           duration: 0.4,
           ease: "power3.out",
         });
@@ -80,10 +82,10 @@ const Navbar = () => {
           borderRadius: "0px",
           paddingTop: "0.625rem",
           paddingBottom: "0.625rem",
-          paddingLeft: "1.5rem",
-          paddingRight: "1.5rem",
+          paddingLeft: isMobile ? "1rem" : "1.5rem",
+          paddingRight: isMobile ? "1rem" : "1.5rem",
           backgroundColor: "rgba(255, 255, 255, 0)",
-          borderColor: "rgba(255, 255, 255, 0)",
+          borderColor: "rgba(226, 232, 240, 0)",
           boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
           duration: 0.4,
           ease: "power3.out",
@@ -92,9 +94,13 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
     onScroll(); // Run on mount
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, [hasScrolled]);
 
   // Lock body scroll when mobile drawer is open
@@ -171,7 +177,7 @@ const Navbar = () => {
           {navItems.map((item, index) => {
             const isActive =
               location.pathname.toLowerCase() === item.href.toLowerCase();
-            
+
             const textColor = isActive ? "#0284c7" : "#334155";
 
             return (

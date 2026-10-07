@@ -18,7 +18,7 @@ import Job from "./components/job"
 const App = () => {
   return (
     <Router>
-      <Whatsapp/>
+      <Whatsapp />
       <Navbar />
       <div className="  ">
         <Routes>

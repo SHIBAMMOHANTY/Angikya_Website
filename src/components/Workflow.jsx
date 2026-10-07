@@ -151,7 +151,7 @@ const ExecutionCard = ({ step, index }) => {
         >
           <span
             className="w-1.5 h-1.5 rounded-full animate-pulse shrink-0"
-            style={{ background: `linear-gradient(135deg, ${a.from.replace("from-","")}, ${a.to.replace("to-","")})`, boxShadow: `0 0 8px ${a.glow}` }}
+            style={{ background: `linear-gradient(135deg, ${a.from.replace("from-", "")}, ${a.to.replace("to-", "")})`, boxShadow: `0 0 8px ${a.glow}` }}
           />
           <span className="text-[0.68rem] font-mono tracking-wide text-slate-400 group-hover:text-slate-200 transition-colors truncate">
             {step.milestone}

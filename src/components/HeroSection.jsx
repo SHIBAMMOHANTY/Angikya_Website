@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const containerRef = useRef(null);
-  
+
   // White section mouse tracking for grid illumination
   const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
   const [isHovered, setIsHovered] = useState(false);
@@ -47,7 +47,7 @@ const HeroSection = () => {
     <div ref={containerRef} className="relative h-[145vh] sm:h-[155vh] bg-white">
       {/* Sticky Fullscreen Container */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden">
-        
+
         {/* ─── TOP SECTION: Ultra-Minimal White Hero with Interactive Spotlight (70vh) ─── */}
         <div
           onMouseMove={handleMouseMove}
@@ -213,6 +213,16 @@ const HeroSection = () => {
                   </defs>
                 </svg>
               </motion.div>
+
+              {/* Small Subtext — Mobile Only */}
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.6 }}
+                className="sm:hidden text-xs text-slate-500 max-w-[280px] mx-auto font-normal leading-relaxed pt-2.5 px-2"
+              >
+                Architecting high-performance digital systems, scalable cloud platforms, and bespoke AI solutions.
+              </motion.p>
             </div>
           </div>
 

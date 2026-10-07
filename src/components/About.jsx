@@ -39,9 +39,9 @@ const corePillars = [
 ];
 
 const metrics = [
-  { number: "50+",   label: "Global Deployments",   sub: "Enterprise & Clinical Systems" },
-  { number: "99.9%", label: "System Uptime",         sub: "Built on resilient cloud architecture" },
-  { number: "100%",  label: "Client Satisfaction",   sub: "Verified post-launch project success" },
+  { number: "50+", label: "Global Deployments", sub: "Enterprise & Clinical Systems" },
+  { number: "99.9%", label: "System Uptime", sub: "Built on resilient cloud architecture" },
+  { number: "100%", label: "Client Satisfaction", sub: "Verified post-launch project success" },
 ];
 
 const fadeUp = (delay = 0) => ({
@@ -70,6 +70,44 @@ const AboutUs = () => {
       onMouseLeave={() => setIsHovered(false)}
       className="relative bg-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden cursor-default select-none border-t border-slate-200"
     >
+      {/* Top-Left Floating Animated Corner Orb */}
+      <motion.div
+        animate={{
+          x: [0, 8, -5, 4, 0],
+          y: [0, -6, 5, -3, 0],
+          scale: [1, 1.05, 0.97, 1.03, 1],
+          rotate: [0, 5, -4, 2, 0],
+        }}
+        transition={{
+          duration: 7.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -top-6 sm:-top-8 -left-6 sm:-left-8 w-24 sm:w-36 h-24 sm:h-36 rounded-full bg-gradient-to-br from-sky-400/85 via-blue-500/75 to-indigo-600/55 shadow-[0_8px_25px_rgba(14,165,233,0.3)] pointer-events-none z-0 overflow-hidden"
+      >
+        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/20 to-white/50" />
+        <div className="absolute top-1/4 left-1/4 w-1/2 h-1/2 rounded-full bg-sky-300/40 blur-sm" />
+      </motion.div>
+
+      {/* Bottom-Right Floating Animated Corner Orb */}
+      <motion.div
+        animate={{
+          x: [0, -12, 8, -6, 0],
+          y: [0, 10, -8, 5, 0],
+          scale: [1, 0.95, 1.05, 0.98, 1],
+          rotate: [0, -6, 7, -3, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -bottom-10 sm:-bottom-14 -right-10 sm:-right-14 w-32 sm:w-48 h-32 sm:h-48 rounded-full bg-gradient-to-tl from-blue-600/90 via-sky-500/80 to-indigo-500/60 shadow-[0_10px_40px_rgba(37,99,235,0.4)] pointer-events-none z-0 overflow-hidden"
+      >
+        <div className="absolute inset-0 rounded-full bg-gradient-to-bl from-white/35 via-white/10 to-transparent" />
+        <div className="absolute bottom-1/4 right-1/4 w-1/2 h-1/2 rounded-full bg-sky-300/40 blur-md" />
+      </motion.div>
+
       {/* ── Ambient Gradient Glow Orbs ── */}
       <div className="absolute top-10 left-10 w-80 h-80 bg-gradient-to-br from-sky-300/30 via-indigo-200/25 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-tl from-emerald-200/25 via-teal-200/20 to-transparent rounded-full blur-3xl pointer-events-none" />

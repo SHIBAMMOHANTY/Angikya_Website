@@ -50,11 +50,10 @@ const AccordionGallery = ({
                 borderRadius: `${radius}px`,
                 transition: `flex ${duration}s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease`,
               }}
-              className={`relative overflow-hidden cursor-pointer flex flex-col justify-between border transition-all duration-500 ${
-                isExpanded
+              className={`relative overflow-hidden cursor-pointer flex flex-col justify-between border transition-all duration-500 ${isExpanded
                   ? "border-sky-500/60 bg-[#090e1c] shadow-[0_0_40px_rgba(14,165,233,0.25)]"
                   : "border-white/10 bg-[#080d19]/80 hover:border-sky-500/40 hover:bg-[#0c1426]"
-              }`}
+                }`}
             >
               {/* Background Image with Crisp High-Luminance Visibility */}
               {item.image && (
@@ -62,13 +61,12 @@ const AccordionGallery = ({
                   <img
                     src={item.image}
                     alt={item.title || item.label}
-                    className={`w-full h-full object-cover transition-all duration-700 ease-out ${
-                      isExpanded
+                    className={`w-full h-full object-cover transition-all duration-700 ease-out ${isExpanded
                         ? "scale-105 opacity-100 brightness-110 contrast-[1.05]"
                         : grayscale
-                        ? "grayscale opacity-60 scale-100"
-                        : "opacity-75 brightness-105 scale-100"
-                    }`}
+                          ? "grayscale opacity-60 scale-100"
+                          : "opacity-75 brightness-105 scale-100"
+                      }`}
                   />
                   {/* Lightweight bottom fade only behind text */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#070b14]/85 via-[#070b14]/20 to-transparent" />
@@ -77,9 +75,8 @@ const AccordionGallery = ({
 
               {/* ─── COLLAPSED STATE (Vertical Sleek Pill) ─── */}
               <div
-                className={`absolute inset-0 z-10 flex flex-col items-center justify-between py-6 px-2 transition-all duration-300 pointer-events-none ${
-                  isExpanded ? "opacity-0 -translate-y-4 scale-95" : "opacity-100 translate-y-0 scale-100"
-                }`}
+                className={`absolute inset-0 z-10 flex flex-col items-center justify-between py-6 px-2 transition-all duration-300 pointer-events-none ${isExpanded ? "opacity-0 -translate-y-4 scale-95" : "opacity-100 translate-y-0 scale-100"
+                  }`}
               >
                 {/* Top Glowing Icon Badge */}
                 {Icon && (
@@ -103,9 +100,8 @@ const AccordionGallery = ({
 
               {/* ─── EXPANDED STATE (Rich Detailed Card) ─── */}
               <div
-                className={`relative z-10 flex flex-col justify-between h-full p-6 sm:p-7 transition-all duration-500 ${
-                  isExpanded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
-                }`}
+                className={`relative z-10 flex flex-col justify-between h-full p-6 sm:p-7 transition-all duration-500 ${isExpanded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+                  }`}
               >
                 {/* Header: Icon + Category Badge */}
                 <div className="flex items-center justify-between">
@@ -180,21 +176,19 @@ const AccordionGallery = ({
             <div
               key={index}
               onClick={() => setActiveIndex(isExpanded ? -1 : index)}
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                isExpanded
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isExpanded
                   ? "bg-[#090e1c] border-sky-500/50 shadow-lg shadow-sky-500/10"
                   : "bg-[#080d19]/80 border-white/10"
-              }`}
+                }`}
             >
               {/* Header Bar */}
               <div className="p-4 flex items-center justify-between cursor-pointer">
                 <div className="flex items-center gap-3">
                   {Icon && (
-                    <div className={`p-2.5 rounded-xl border ${
-                      isExpanded
+                    <div className={`p-2.5 rounded-xl border ${isExpanded
                         ? "bg-sky-500/25 border-sky-400/50 text-sky-300 shadow-[0_0_12px_rgba(56,189,248,0.3)]"
                         : "bg-sky-500/10 border-sky-400/25 text-sky-400"
-                    }`}>
+                      }`}>
                       <Icon className="w-5 h-5" />
                     </div>
                   )}
