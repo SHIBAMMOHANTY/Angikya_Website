@@ -1,149 +1,164 @@
-import { FaLinkedin, FaTwitter, FaGithub, FaFacebook } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaGithub, FaInstagram } from "react-icons/fa";
+import { MapPin, Phone, Mail } from "lucide-react";
 import logo from "../assets/profile-pictures/angikya1.png";
+
+const navLinks = [
+  { label: "About Us",        href: "/about" },
+  { label: "Services",        href: "/service" },
+  { label: "Careers",         href: "/careers" },
+  { label: "Contact",         href: "/contact" },
+  { label: "Privacy Policy",  href: "/privacy-policy" },
+  { label: "Terms & Conditions", href: "/terms" },
+];
+
+const socials = [
+  { icon: FaLinkedin, href: "https://linkedin.com/company/ANGIKYA",  label: "LinkedIn",  color: "#0ea5e9" },
+  { icon: FaTwitter,  href: "https://twitter.com/ANGIKYA",           label: "Twitter",   color: "#6366f1" },
+  { icon: FaGithub,   href: "https://github.com/ANGIKYA",            label: "GitHub",    color: "#8b5cf6" },
+  { icon: FaInstagram,href: "https://instagram.com/ANGIKYA",         label: "Instagram", color: "#ec4899" },
+];
 
 const Footer = () => {
   return (
-    <footer className="mt-10 py-8 text-blue-900 bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F3460] px-3 md:px-6 lg:px-12 xl:px-20">
-      <div className=" mx-auto px-6 gap-2 md:gap-8 flex flex-col md:flex-row justify-between ">
-        {/* Left Column: Logo, Company Name, and Address */}
-        <div className="text-center md:text-left flex flex-col items-center md:items-start space-y-2">
-          {/* <h3 className="text-2xl font-bold text-white">ANGIKYA Technology</h3> */}
-          <a href="/" className="flex items-center">
-            <img className="h-8 md:h-10 w-auto object-contain mr-2" src={logo}
-              alt="ANGIKYA SOFTWARE & TECHNOLOGIES LIMITED"
-            />
+    <footer
+      style={{
+        background: "linear-gradient(160deg, #05090f 0%, #0a0f1e 50%, #080d1a 100%)",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+      }}
+    >
+
+      {/* ── MAIN FOOTER GRID ── */}
+      <div className="px-4 sm:px-6 lg:px-20 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+        {/* Brand Column */}
+        <div className="lg:col-span-1 flex flex-col gap-5">
+          <a href="/" className="inline-block">
+            <img src={logo} alt="Angikya" className="h-9 w-auto object-contain" />
           </a>
-          <p className="text-white text-sm md:text-base">
-            5th Floor, Flat No-507, <br />
-            Promod Heights, <br />
-            Bhubaneswar, Odisha
+          <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
+            A collective of senior engineers building next-gen digital products that solve mission-critical challenges at scale.
           </p>
-          <div className="pt-2 space-y-1 text-sm text-gray-200">
-            <p className="flex items-center gap-2">
-              <span>📞</span>
-              <a href="tel:+919777684484" className="hover:text-blue-400 transition-colors">
-                +91 97776 84484
+
+          {/* Social Icons */}
+          <div className="flex items-center gap-3 pt-1">
+            {socials.map(({ icon: Icon, href, label, color }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = `${color}22`;
+                  e.currentTarget.style.border = `1px solid ${color}55`;
+                  e.currentTarget.style.boxShadow = `0 0 14px ${color}44`;
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                  e.currentTarget.style.border = "1px solid rgba(255,255,255,0.08)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <Icon className="w-4 h-4" style={{ color }} />
               </a>
-            </p>
-            <p className="flex items-center gap-2">
-              <span>📧</span>
-              <a href="mailto:connect@angikya.com" className="hover:text-blue-400 transition-colors">
-                connect@angikya.com
-              </a>
-            </p>
+            ))}
           </div>
         </div>
 
+        {/* Quick Links */}
+        <div>
+          <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-slate-500 mb-5">Navigation</h4>
+          <ul className="space-y-3">
+            {navLinks.map(({ label, href }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  className="group inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors duration-200"
+                >
+                  <span
+                    className="w-0 group-hover:w-3 h-px transition-all duration-300 rounded-full"
+                    style={{ background: "linear-gradient(90deg,#0ea5e9,#6366f1)" }}
+                  />
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
+        {/* Services */}
+        <div>
+          <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-slate-500 mb-5">Services</h4>
+          <ul className="space-y-3">
+            {["Web Development", "Mobile Apps", "AI & Automation", "Cloud Architecture", "UI/UX Design", "Custom Software"].map(s => (
+              <li key={s}>
+                <a
+                  href="/service"
+                  className="group inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors duration-200"
+                >
+                  <span
+                    className="w-0 group-hover:w-3 h-px transition-all duration-300 rounded-full"
+                    style={{ background: "linear-gradient(90deg,#8b5cf6,#6366f1)" }}
+                  />
+                  {s}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        {/* Right Column: Empty (Optional) */}
-        {/* <div className="text-center md:text-left">
-        <h3 className="text-2xl font-bold mb-4 text-blue-900">ANGIKYA Technology</h3>
-        <p className="text-sm text-blue-800 font-medium leading-relaxed">
-            Building the future with cutting-edge AI .
-          </p>
-          <p className="text-sm text-blue-800 font-medium mt-4">
-            123 Tech Street, Bhubaneswar, Odisha, India
-          </p>
-        </div> */}
-
-        {/* Middle Column 1: Quick Links */}
-        <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-12">
-          <div className="text-center  md:text-left">
-            <h3 className="text-xl font-bold mb-2 tracking-wide text-white">
-              Quick Links
-            </h3>
-            <ul className="space-y-2 text-sm font-medium text-white">
-              <li>
-                <a
-                  href="/about"
-                  className="hover:text-blue-600 transition-all duration-300"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/terms"
-                  className="hover:text-blue-600 transition-all duration-300"
-                >
-                  Terms & Conditions
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/privacy-policy"
-                  className="hover:text-blue-600 transition-all duration-300"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/careers"
-                  className="hover:text-blue-600 transition-all duration-300"
-                >
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/contact"
-                  className="hover:text-blue-600 transition-all duration-300"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Middle Column 2: Social Media Links */}
-          <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-4 text-white">Follow Us</h3>
-            <div className="flex justify-center md:justify-start space-x-4">
-              <a
-                href="https://linkedin.com/company/ANGIKYA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl text-white hover:text-blue-600 transition-transform transform hover:scale-110"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href="https://twitter.com/ANGIKYA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl text-white hover:text-blue-600 transition-transform transform hover:scale-110"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href="https://github.com/ANGIKYA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl text-white hover:text-blue-600 transition-transform transform hover:scale-110"
-              >
-                <FaGithub />
-              </a>
-              <a
-                href="https://facebook.com/ANGIKYA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl text-white hover:text-blue-600 transition-transform transform hover:scale-110"
-              >
-                <FaFacebook />
-              </a>
+        {/* Contact Info */}
+        <div>
+          <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-slate-500 mb-5">Contact</h4>
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
+                style={{ background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.2)" }}>
+                <MapPin className="w-3.5 h-3.5" style={{ color: "#0ea5e9" }} />
+              </div>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                5th Floor, Flat No-507,<br />
+                Promod Heights,<br />
+                Bhubaneswar, Odisha
+              </p>
             </div>
+
+            <a href="tel:+919777684484" className="flex items-center gap-3 group">
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+                style={{ background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.2)" }}>
+                <Phone className="w-3.5 h-3.5" style={{ color: "#0ea5e9" }} />
+              </div>
+              <span className="text-sm text-slate-400 group-hover:text-white transition-colors">+91 97776 84484</span>
+            </a>
+
+            <a href="mailto:connect@angikya.com" className="flex items-center gap-3 group">
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+                style={{ background: "rgba(99,102,241,0.1)", border: "1px solid rgba(99,102,241,0.2)" }}>
+                <Mail className="w-3.5 h-3.5" style={{ color: "#6366f1" }} />
+              </div>
+              <span className="text-sm text-slate-400 group-hover:text-white transition-colors">connect@angikya.com</span>
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Reserved Rights Section */}
-      <div className="mt-8 text-center md:text-center text-sm font-medium text-white pt-6 border-t border-blue-200">
-        <p className="max-w-6xl mx-auto px-6">
-          &copy; {new Date().getFullYear()} ANGIKYA Technology. All rights
-          reserved.
+      {/* ── BOTTOM BAR ── */}
+      <div
+        className="px-4 sm:px-6 lg:px-20 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"
+        style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+      >
+        <p className="text-xs text-slate-500 font-mono">
+          © {new Date().getFullYear()} Angikya Technology. All rights reserved.
         </p>
+        <div className="flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-xs text-slate-500 font-mono">All systems operational</span>
+        </div>
       </div>
     </footer>
   );

@@ -1,286 +1,283 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaReact, FaNodeJs, FaPython, FaAws, FaDatabase, FaJava } from "react-icons/fa";
-import { SiMongodb, SiTailwindcss, SiDocker, SiGraphql, SiNextdotjs, SiTypescript, SiFirebase, SiKotlin, SiSupabase, SiOpenai } from "react-icons/si";
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  Compass,
+  Code2,
+  Rocket,
+  Layout,
+  ArrowRight,
+} from "lucide-react";
+import SectionHeader from "./ui/SectionHeader";
 
-const techStack = [
+
+const executionSteps = [
   {
-    id:1,
-    name: "React",
-    icon: <FaReact className="text-blue-400 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A JavaScript library for building user interfaces. Used for modern web apps with fast rendering.",
-      "1. A JavaScript library for building interactive user interfaces.",
-      "2. Helps create fast and smooth web applications.",
-      "3. Used by companies like Facebook, Instagram, and Airbnb.",
-      "4. Makes it easy to reuse components, saving development time."
-    ]
+    step: "01",
+    phase: "PHASE 01",
+    icon: Compass,
+    title: "Discovery & Architecture",
+    description: "Define scalable system blueprints, business logic, and select the optimal modern stack.",
+    milestone: "Blueprint & Stack Locked"
   },
-  { 
-    id:2,
-    name: "Next.js", 
-    icon: <SiNextdotjs className="text-white text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A React framework for server-side rendering, static site generation, and API routes.",
-      "1. A React framework for server-side rendering (SSR) and static site generation (SSG).",
-      "2. Simplifies API routes and file-based routing.",
-      "3. Optimized for performance and SEO.",
-      "4. Used by companies like Netflix and Twitch."
-    ]
+  {
+    step: "02",
+    phase: "PHASE 02",
+    icon: Layout,
+    title: "UI/UX & Prototyping",
+    description: "High-converting user journeys and interactive Figma prototypes validated with real workflows.",
+    milestone: "Figma Prototypes Ready"
   },
-  { 
-    id:3,
-    name: "Node.js", 
-    icon: <FaNodeJs className="text-green-400 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A JavaScript runtime for building fast, scalable server-side applications.",
-      "1. A JavaScript runtime built on Chrome's V8 engine.",
-      "2. Enables building fast and scalable server-side applications.",
-      "3. Non-blocking I/O model for high performance.",
-      "4. Widely used in backend development."
-    ]
+  {
+    step: "03",
+    phase: "PHASE 03",
+    icon: Code2,
+    title: "Full-Stack Agile Sprints",
+    description: "Clean, modular engineering with continuous integration, automated testing, and bi-weekly demos.",
+    milestone: "Automated CI/CD Tested"
   },
-  { 
-    id:4,
-    name: "TypeScript", 
-    icon: <SiTypescript className="text-blue-500 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A strongly typed JavaScript language that helps catch errors early in development.",
-      "1. A strongly typed superset of JavaScript.",
-      "2. Helps catch errors during development.",
-      "3. Improves code quality and maintainability.",
-      "4. Used by large-scale applications."
-    ]
-  },
-  { 
-    id:5,
-    name: "MongoDB", 
-    icon: <SiMongodb className="text-green-500 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A NoSQL database used for scalable applications with flexible data structures." ,
-      "1. A NoSQL database for scalable applications.",
-      "2. Uses flexible JSON-like documents for data storage.",
-      "3. Ideal for real-time applications and big data.",
-      "4. High performance and horizontal scaling."
-    ]
-  },
-  { 
-    id:6,
-    name: "Tailwind CSS", 
-    icon: <SiTailwindcss className="text-cyan-400 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A utility-first CSS framework for building modern, responsive designs efficiently." ,
-      "1. A utility-first CSS framework.",
-      "2. Enables rapid UI development with pre-defined classes.",
-      "3. Highly customizable and responsive.",
-      "4. Used by modern web applications."
-    ]
-  },
-  { 
-    id:7,
-    name: "GraphQL", 
-    icon: <SiGraphql className="text-pink-500 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-     "A query language that allows efficient fetching of data from APIs." ,
-      "1. A query language for APIs.",
-      "2. Allows clients to request only the data they need.",
-      "3. Reduces over-fetching and under-fetching of data.",
-      "4. Used by companies like GitHub and Shopify."
-    ]
-  },
-  { 
-    id:8,
-    name: "Docker", 
-    icon: <SiDocker className="text-blue-500 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A platform to containerize applications, making deployment easier and more reliable." ,
-      "1. A platform for containerizing applications.",
-      "2. Simplifies deployment and scaling.",
-      "3. Ensures consistency across development environments.",
-      "4. Widely used in DevOps and CI/CD pipelines."
-    ]
-  },
-  { 
-    id:9,
-    name: "AWS", 
-    icon: <FaAws className="text-yellow-500 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A cloud computing platform offering storage, computing, and machine learning services." ,
-      "1. A cloud computing platform by Amazon.",
-      "2. Offers services like EC2, S3, and Lambda.",
-      "3. Scalable and cost-effective solutions.",
-      "4. Used by enterprises worldwide."
-    ]
-  },
-  { 
-    id:10,
-    name: "Firebase", 
-    icon: <SiFirebase className="text-orange-500 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A backend-as-a-service for authentication, databases, and hosting.",
-      "1. A backend-as-a-service (BaaS) platform.",
-      "2. Provides authentication, real-time databases, and hosting.",
-      "3. Easy integration with mobile and web apps.",
-      "4. Used by startups and small businesses."
-    ]
-  },
-  { 
-    id:11,
-    name: "Supabase", 
-    icon: <SiSupabase className="text-green-500 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "An open-source alternative to Firebase, offering real-time databases and authentication." ,
-      "1. An open-source alternative to Firebase.",
-      "2. Offers real-time databases and authentication.",
-      "3. Built on PostgreSQL for scalability.",
-      "4. Ideal for modern web applications."
-    ]
-  },
-  { 
-    id:12,
-    name: "OpenAI", 
-    icon: <SiOpenai className="text-gray-300 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "1. Provides AI models like GPT for natural language processing.",
-      "2. Enables text generation, translation, and summarization.",
-      "3. Used in chatbots, content creation, and more.",
-      "4. Powers cutting-edge AI applications."
-    ]
-  },
-  { 
-    id:13,
-    name: "Python", 
-    icon: <FaPython className="text-yellow-400 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A versatile programming language widely used in AI, web development, and automation." ,
-      "1. A versatile programming language.",
-      "2. Widely used in AI, web development, and automation.",
-      "3. Simple syntax and extensive libraries.",
-      "4. Popular in data science and machine learning."
-    ]
-  },
-  { 
-    id:14,
-    name: "Kotlin", 
-    icon: <SiKotlin className="text-purple-500 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A modern programming language for Android development." ,
-      "1. A modern programming language for Android development.",
-      "2. Fully interoperable with Java.",
-      "3. Reduces boilerplate code and improves productivity.",
-      "4. Used by Google for Android apps."
-    ]
-  },
-  { 
-    id:15,
-    name: "Java", 
-    icon: <FaJava className="text-red-500 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "A robust, object-oriented language used for enterprise applications and Android development." ,
-      "1. A robust, object-oriented programming language.",
-      "2. Used for enterprise applications and Android development.",
-      "3. Platform-independent and highly scalable.",
-      "4. Powers applications like Minecraft and LinkedIn."
-    ]
-  },
-  { 
-    id:16,
-    name: "SQL Databases", 
-    icon: <FaDatabase className="text-gray-500 text-3xl sm:text-4xl" />, // Reduced icon size
-    description: [
-      "Structured databases used for managing relational data." ,
-      "1. Structured databases for managing relational data.",
-      "2. Supports complex queries and transactions.",
-      "3. Used in applications like banking and e-commerce.",
-      "4. Examples include MySQL, PostgreSQL, and SQL Server."
-    ]
+  {
+    step: "04",
+    phase: "PHASE 04",
+    icon: Rocket,
+    title: "Cloud Deployment & Scale",
+    description: "Zero-downtime production launch, elastic cloud automation, telemetry, and 99.9% uptime SLAs.",
+    milestone: "Live with 99.9% Uptime"
   },
 ];
 
-const TechStack = () => {
-  const [selectedTech, setSelectedTech] = useState(null);
-  const [hoveredTech, setHoveredTech] = useState(null);
+// Redesigned Premium Execution Step Card
+const ExecutionCard = ({ step, index }) => {
+  const cardRef = useRef(null);
+  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const Icon = step.icon;
+
+  // Per-card accent colors
+  const accents = [
+    { from: "from-sky-400", to: "to-blue-600", glow: "rgba(14,165,233,0.35)", border: "rgba(56,189,248,0.5)", soft: "rgba(14,165,233,0.18)" },
+    { from: "from-violet-400", to: "to-indigo-600", glow: "rgba(139,92,246,0.35)", border: "rgba(167,139,250,0.5)", soft: "rgba(99,102,241,0.18)" },
+    { from: "from-emerald-400", to: "to-teal-600", glow: "rgba(52,211,153,0.35)", border: "rgba(52,211,153,0.5)", soft: "rgba(16,185,129,0.18)" },
+    { from: "from-rose-400", to: "to-orange-500", glow: "rgba(251,113,133,0.35)", border: "rgba(251,113,133,0.5)", soft: "rgba(239,68,68,0.18)" },
+  ];
+  const a = accents[index % accents.length];
 
   return (
-    <div className="flex flex-col items-center justify-center  px-6">
-      {/* Title */}
-      <div className="text-center pb-8 md:pb-16">
-        <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-8 tracking-wide font-extrabold text-dark">
-          Tech
-          <span className="bg-gradient-to-r from-blue-400 to-blue-700 text-transparent bg-clip-text"> Stack</span>
-        </h2>
-      </div>
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.55, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative rounded-2xl overflow-hidden flex flex-col group cursor-default"
+      style={{
+        background: "linear-gradient(160deg, #0d1526 0%, #0a0f1e 100%)",
+        border: `1px solid ${isHovered ? a.border : "rgba(255,255,255,0.08)"}`,
+        boxShadow: isHovered ? `0 24px 60px -12px ${a.glow}` : "0 4px 24px rgba(0,0,0,0.3)",
+        transition: "border 0.35s ease, box-shadow 0.35s ease",
+      }}
+    >
+      {/* Mouse spotlight */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0 transition-opacity duration-300"
+        style={{
+          opacity: isHovered ? 1 : 0,
+          background: `radial-gradient(circle 260px at ${mousePos.x}px ${mousePos.y}px, ${a.soft}, transparent 80%)`,
+        }}
+      />
 
-      {/* Tech Stack Grid */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl">
-        {techStack.map((tech) => (
-          <motion.div
-            key={tech.id}
-            className="relative flex items-center justify-center p-4 sm:p-6 bg-neutral-800 rounded-lg shadow-lg cursor-pointer"
-            whileHover={{ scale: 1.1 }} // Scale effect on hover
-            whileTap={{ scale: 0.9 }} // Scale effect on click
-            onMouseEnter={() => setHoveredTech(tech.id)} // Set hovered tech
-            onMouseLeave={() => setHoveredTech(null)} // Reset hovered tech
-            onClick={() => setSelectedTech(tech)} // Set selected tech
+      {/* Top accent bar */}
+      <div className={`h-[3px] w-full bg-gradient-to-r ${a.from} ${a.to} opacity-0 group-hover:opacity-100 transition-opacity duration-400`} />
+
+      {/* Card body */}
+      <div className="relative z-10 p-6 sm:p-7 flex flex-col flex-1">
+        {/* Step number + icon row */}
+        <div className="flex items-start justify-between mb-6">
+          <div className="flex flex-col gap-1">
+            <span
+              className="text-[0.6rem] font-mono tracking-[0.22em] uppercase font-semibold"
+              style={{ color: "rgba(148,163,184,0.7)" }}
+            >
+              {step.phase}
+            </span>
+            <span
+              className={`text-4xl font-black font-mono bg-gradient-to-br ${a.from} ${a.to} bg-clip-text text-transparent leading-none select-none`}
+            >
+              {step.step}
+            </span>
+          </div>
+
+          {/* Icon bubble */}
+          <div
+            className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-400 group-hover:scale-110 shrink-0"
+            style={{
+              background: isHovered
+                ? `linear-gradient(135deg, ${a.soft.replace("0.18", "0.35")}, ${a.soft})`
+                : "rgba(255,255,255,0.05)",
+              border: `1px solid ${isHovered ? a.border : "rgba(255,255,255,0.1)"}`,
+            }}
           >
-            {/* Icon */}
-            <motion.div
-              className="w-full h-full flex items-center justify-center"
-              initial={{ opacity: 1 }}
-              animate={{ opacity: hoveredTech === tech.id ? 0 : 1 }} // Hide icon on hover
-              transition={{ duration: 0.3 }} // Smooth transition
-            >
-              {tech.icon}
-            </motion.div>
+            <Icon
+              className="w-5 h-5"
+              style={{ color: isHovered ? "#fff" : "rgba(148,163,184,0.9)" }}
+            />
+          </div>
+        </div>
 
-            {/* "Click Me" Text */}
-            <motion.div
-              className="absolute w-full h-full flex items-center justify-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: hoveredTech === tech.id ? 1 : 0 }} // Show text on hover
-              transition={{ duration: 0.3 }} // Smooth transition
-            >
-              <span className="text-sm sm:text-base font-semibold text-neutral-200">
-                Click Me
-              </span>
-            </motion.div>
-          </motion.div>
-        ))}
+        {/* Title */}
+        <h3 className="text-base sm:text-lg font-bold text-white mb-3 leading-snug group-hover:text-slate-50 transition-colors">
+          {step.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-xs sm:text-[0.82rem] text-slate-400 leading-relaxed flex-1">
+          {step.description}
+        </p>
+
+        {/* Milestone footer */}
+        <div
+          className="mt-6 pt-4 flex items-center gap-2.5"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
+        >
+          <span
+            className="w-1.5 h-1.5 rounded-full animate-pulse shrink-0"
+            style={{ background: `linear-gradient(135deg, ${a.from.replace("from-","")}, ${a.to.replace("to-","")})`, boxShadow: `0 0 8px ${a.glow}` }}
+          />
+          <span className="text-[0.68rem] font-mono tracking-wide text-slate-400 group-hover:text-slate-200 transition-colors truncate">
+            {step.milestone}
+          </span>
+        </div>
       </div>
-
-      {/* Selected Tech Details Modal */}
-      <AnimatePresence>
-        {selectedTech && (
-          <motion.div
-            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedTech(null)} // Close modal on outside click
-          >
-            <motion.div
-              className="w-full max-w-2xl bg-neutral-800 rounded-lg shadow-lg p-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
-            >
-              <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text mb-4">
-                {selectedTech.name}
-              </h3>
-              <div className="text-neutral-300 space-y-2">
-                {selectedTech.description.map((line, index) => (
-                  <p key={index} className="text-sm sm:text-base">
-                    {line}
-                  </p>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };
 
-export default TechStack;
+const Workflow = () => {
+  // Section-level mouse follower state
+  const sectionRef = useRef(null);
+  const [sectionMouse, setSectionMouse] = useState({ x: -1000, y: -1000 });
+  const [sectionHovered, setSectionHovered] = useState(false);
+
+  const handleSectionMouseMove = (e) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    setSectionMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  return (
+    <section className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Proven Engineering Process */}
+      <div>
+        <SectionHeader
+          badgeVariant="primary"
+          badgeDot={true}
+          title="From Blueprint to Scaled Reality:"
+          gradientWord="How We Execute"
+          subtitle="A battle-tested 4-stage engineering lifecycle designed for velocity, total transparency, and flawless delivery."
+        />
+
+        {/* Cards grid — section-level mouse follower wrapping the whole area */}
+        <div
+          ref={sectionRef}
+          className="relative"
+          onMouseMove={handleSectionMouseMove}
+          onMouseEnter={() => setSectionHovered(true)}
+          onMouseLeave={() => setSectionHovered(false)}
+        >
+          {/* ── Section-Wide Mouse Follower Ambient Glow ── */}
+          <div
+            className="absolute inset-0 pointer-events-none z-0"
+            style={{
+              opacity: sectionHovered ? 1 : 0,
+              transition: "opacity 0.4s ease",
+              background: `radial-gradient(circle 580px at ${sectionMouse.x}px ${sectionMouse.y}px,
+                rgba(56,189,248,0.22) 0%,
+                rgba(99,102,241,0.14) 40%,
+                rgba(168,85,247,0.08) 65%,
+                transparent 82%)`,
+            }}
+          />
+          {/* Tight bright core — snaps directly under cursor tip */}
+          <div
+            className="absolute inset-0 pointer-events-none z-0"
+            style={{
+              opacity: sectionHovered ? 1 : 0,
+              transition: "opacity 0.15s ease",
+              background: `radial-gradient(circle 150px at ${sectionMouse.x}px ${sectionMouse.y}px,
+                rgba(56,189,248,0.55) 0%,
+                rgba(14,165,233,0.20) 50%,
+                transparent 80%)`,
+            }}
+          />
+
+          {/* Connecting dashed line (desktop only) */}
+          <div className="hidden lg:block absolute top-[52px] left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-px z-0"
+            style={{ background: "linear-gradient(to right, transparent, rgba(56,189,248,0.25) 20%, rgba(56,189,248,0.25) 80%, transparent)" }}>
+            {/* Animated dot on the line */}
+            <motion.div
+              animate={{ x: ["0%", "100%", "0%"] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_10px_rgba(56,189,248,0.8)]"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative z-10">
+            {executionSteps.map((step, index) => (
+              <ExecutionCard key={index} step={step} index={index} />
+            ))}
+          </div>
+        </div>
+
+        {/* Have a Custom Technical Challenge? */}
+        <div className="mt-14 sm:mt-18 relative z-10">
+          <div className="w-full max-w-3xl lg:max-w-[72%] mx-auto relative overflow-hidden rounded-3xl p-6 sm:p-8 md:p-10 bg-white text-slate-900 border border-slate-200/90 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.09)]">
+            {/* Subtle Ambient Corner Glow */}
+            <div className="absolute -top-12 -right-12 w-52 h-52 rounded-full bg-gradient-to-br from-sky-400/20 via-blue-500/15 to-transparent blur-2xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 text-center sm:text-left">
+              {/* Minimal Text Column */}
+              <div className="space-y-1.5 max-w-lg">
+                <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-display font-bold text-slate-950 tracking-tight leading-snug">
+                  Have a Custom Technical Challenge?
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Our architects are ready to evaluate your stack and build your roadmap.
+                </p>
+              </div>
+
+              {/* Action Button (Navbar Gradient & Hover Shine Effect) */}
+              <div className="shrink-0">
+                <Link
+                  to="/contact"
+                  className="relative inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 text-xs sm:text-sm font-semibold text-white rounded-full overflow-hidden group transition-all duration-300 hover:scale-[1.03]"
+                  style={{
+                    background: "linear-gradient(135deg, #0ea5e9, #4f46e5)",
+                    boxShadow: "0 0 24px -4px rgba(14, 165, 233, 0.45)",
+                  }}
+                >
+                  {/* Shine sweep on hover */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700 ease-out" />
+                  <span className="relative z-10">Schedule Consultation</span>
+                  <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  );
+};
+
+export default Workflow;
